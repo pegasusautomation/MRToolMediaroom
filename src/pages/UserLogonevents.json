@@ -1,0 +1,835 @@
+﻿[
+    {
+        "Timelog":  "2024-03-28 02:43:16",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "Machine":  "MSPBR5CFSG011",
+        "Service":  "IptvFileReplicatorService",
+        "Action":  "Restarted"
+    },
+    {
+        "Timelog":  "2024-03-28 02:43:31",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "Machine":  "MSPBR5VSERV001",
+        "Service":  "W3SVC",
+        "Action":  "Restarted"
+    },
+    {
+        "Timelog":  "2024-03-28 02:43:33",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "Machine":  "MSPBR5VSERV001",
+        "Service":  "IptvSessionManager",
+        "Action":  "Stopped"
+    },
+    {
+        "Timelog":  "2024-03-28 02:43:37",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "Machine":  "MSPBR5VSERV001",
+        "Service":  "IptvSessionManager",
+        "Action":  "Started"
+    },
+    {
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ComputerName":  "MSPBR5DSERV103",
+        "ServiceName":  "IptvSessionManager",
+        "Action":  "zsdsd"
+    },
+    {
+        "Username":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsds",
+        "ComputerName":  "MSPBR5DSERV103",
+        "ServiceName":  "IptvSessionManager",
+        "Action":  "Started"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:26:57",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started By Yogesh."
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:29:26",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started because service was down."
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:29:47",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started by Deepika "
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:30:01",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "IptvDeliveryAgent",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started By Raju"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:30:17",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started by Parul"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:30:32",
+        "Machine":  "MSPBR5SFBR001",
+        "Service":  "IptvListingsSync",
+        "User":  "MSPBR5\\\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stopped"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:31:03",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started By Admin"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:31:45",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started By Efrem"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:55:29",
+        "Machine":  "MSPBR5SFBR001",
+        "Service":  "IptvListingsSync",
+        "User":  "MSPBR5\\\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stopped"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-05-14 04:58:30",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Media user started the service."
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 04:58:58",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "MR user stopped service."
+    },
+    {
+        "Action":  "Restarted",
+        "Timelog":  "2024-05-14 04:59:17",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "MK user started service"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 05:01:43",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop the server"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 05:07:11",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "I stopped this"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-05-14 05:19:44",
+        "Machine":  "MSPBR5SFSG021",
+        "Service":  "IptvClientSnapshotService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Started BY Raghavendra since it was stopped due to some overload"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-05-14 05:21:16",
+        "Machine":  "MSPBR5SFSG021",
+        "Service":  "IptvDeliveryAgent",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "I stopped service of MSPBR5SFSG021"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 01:39:33",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 01:39:50",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "W3SVC",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 01:40:17",
+        "Machine":  "MSPBE5MDSFE001",
+        "Service":  "IptvFileReplicatorService",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 01:40:46",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 01:44:54",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 02:02:02",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "W3SVC",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 02:03:53",
+        "Machine":  "MSPBE5MDSING001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 02:04:10",
+        "Machine":  "MSPBE5MDSING001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-11 02:05:25",
+        "Machine":  "MSPBE5ACTRL001",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start all"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 02:06:55",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 02:07:04",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "DServerService",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 02:14:03",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-11 02:15:10",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "AdminService.exe /action=restart",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Restart all"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 02:39:23",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 02:49:22",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "IptvDeliveryAgent",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 02:57:03",
+        "Machine":  "MSPBE5VMGMT001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 02:57:31",
+        "Machine":  "MSPBE5MDSFE001",
+        "Service":  "IptvFileReplicatorService",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 03:01:48",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "DServerService",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:07:40",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:12:00",
+        "Machine":  "MSPBR5TSSERV001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:12:31",
+        "Machine":  "MSPBE5MDIST001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 03:28:23",
+        "Machine":  "MSPBE5VMGMT001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stopp"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 03:28:51",
+        "Machine":  "MSPBR5TSSERV001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:29:31",
+        "Machine":  "MSPBR5TSSERV001",
+        "Service":  "IPTV Edition TimeShift Server Service",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:31:46",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:32:33",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:33:23",
+        "Machine":  "MSPBE5VMGMT001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:47:08",
+        "Machine":  "MSPBE5MDIST001",
+        "Service":  "ContentDistributionServer",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:47:45",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:50:43",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:50:55",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 03:51:11",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "VodImportPreprocessor",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 03:53:00",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-11 03:53:12",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-11 05:28:33",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 00:25:33",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 00:26:35",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start all"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 00:26:57",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "AdminService.exe /action=restart",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start all"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 01:48:14",
+        "Machine":  "MSPBE5ASERV004",
+        "Service":  "AcquisitionServiceV3",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 01:48:24",
+        "Machine":  "MSPBE5ASERV004",
+        "Service":  "AcquisitionServiceV3",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 01:48:51",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 05:08:11",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "VodImportPreprocessor",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:11:04",
+        "Machine":  "MSPBE5ASERV003",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dfdf"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 05:22:26",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 05:36:24",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start selected"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 05:47:33",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Start"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:48:34",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "Stop"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:48:46",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "fdfdf"
+    },
+    {
+        "Action":  "Restarted",
+        "Timelog":  "2024-06-18 05:48:57",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "W3SVC",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "fdfdf"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:49:09",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxcxc"
+    },
+    {
+        "Action":  "Restarted",
+        "Timelog":  "2024-06-18 05:49:23",
+        "Machine":  "MSPBR5DSERV102",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "xzxczxc"
+    },
+    {
+        "Action":  "Restarted",
+        "Timelog":  "2024-06-18 05:54:05",
+        "Machine":  "MSPBR5DSERV102",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsdsd"
+    },
+    {
+        "Action":  "Restarted",
+        "Timelog":  "2024-06-18 05:54:19",
+        "Machine":  "MSPBR5CFSG021",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsds"
+    },
+    {
+        "Action":  "Restarted",
+        "Timelog":  "2024-06-18 05:54:47",
+        "Machine":  "MSPBE5VCRT001",
+        "Service":  "IptvSessionManager",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:55:05",
+        "Machine":  "MSPBE5BEDB001\\LIVEDB",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dasdsdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:55:36",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsdsd"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 05:56:14",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxcxc"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 05:56:41",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "AdminService.exe /action=restart",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxcxc"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 05:58:12",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "ddfd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:59:12",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "DServerService",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dfdf"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:59:24",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "W3SVC",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "xcxcxc"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 05:59:33",
+        "Machine":  "MSPBR5DSERV103",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxcxc"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 05:59:51",
+        "Machine":  "MSPBR5DSERV101",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxcxc"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 06:00:19",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxzcxcxc"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 06:00:37",
+        "Machine":  "MSPBR5CGSG021",
+        "Service":  "AdminService.exe /action=restart",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "sdsdsd"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 06:00:55",
+        "Machine":  "MSPBR5TSSERV001",
+        "Service":  "IPTV Edition TimeShift Server Service",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dasdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:01:03",
+        "Machine":  "MSPBR5TSSERV001",
+        "Service":  "IPTV Edition TimeShift Server Service",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:01:46",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "sass"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:05:06",
+        "Machine":  "MSPBE5VCRT001",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dfdsf"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:06:01",
+        "Machine":  "MSPBR5CFSG021",
+        "Service":  "AdminService.exe /action=stop",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dfd"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 06:08:19",
+        "Machine":  "MSPBR5CFSG011",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "fdff"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 06:08:56",
+        "Machine":  "MSPBE5VCRT001",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:10:52",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "IISReset /stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsds"
+    },
+    {
+        "Action":  "IIS Started",
+        "Timelog":  "2024-06-18 06:11:05",
+        "Machine":  "MSPBE5VCTRL001",
+        "Service":  "IISReset /start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsdsdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:12:02",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "cxcxc"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:20:05",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsadsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:20:51",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=stop",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "sgfgfg"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 06:21:21",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "gfgfg"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 06:21:44",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=start",
+        "User":  "MSPBE5\\Raghavendra.Gandanah",
+        "ActionHistory":  "fdffdfd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:22:28",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=stop",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "fdfdfdf"
+    },
+    {
+        "Action":  "Running",
+        "Timelog":  "2024-06-18 06:24:45",
+        "Machine":  "MSPBR5SFBR001",
+        "Service":  "AdminService.exe /action=start",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "csdsd"
+    },
+    {
+        "Action":  "Stopped",
+        "Timelog":  "2024-06-18 06:26:08",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=stop",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "dsadsd"
+    },
+    {
+        "Action":  "Started",
+        "Timelog":  "2024-06-18 06:27:20",
+        "Machine":  "GroupOFMachines",
+        "Service":  "AdminService /action=start",
+        "User":  "MSPBR5\\Raghavendra.Gandanah",
+        "ActionHistory":  "vsddf"
+    }
+]

@@ -1,0 +1,39 @@
+
+
+.content {
+  top:10px;
+  /* margin-left: 1px;  */
+  padding: 5px;
+  /* display: flex; */
+  height: 100vh;
+  /* overflow-y: hidden; */
+  white-space:inherit;
+  /* overflow-x: auto; */
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 100%;
+} 
+.app {
+  top:10px;
+  height: 96.6vh; 
+  padding: 5px;
+  /* display: flex; */
+  margin-top: 18px;
+  margin-right: 40px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%; /* Limit width to prevent overflow */
+
+  
+}
+.bitrate {
+  padding: 5px;
+  display: flex;
+  height: 100vh;
+  margin-left: 30px;  
+  margin-top: 20px;
+  margin-right: 1px;
+  width: 100%;
+  overflow-x: auto; /* Horizontal scroll if content overflows */
+  white-space: nowrap
+}

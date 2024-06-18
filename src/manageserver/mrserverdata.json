@@ -1,0 +1,1479 @@
+﻿[
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  null
+                              }
+                          ],
+        "ComputerName":  "MSPBE5BEDB001\\LIVEDB",
+        "Roles":  [
+                      {
+                          "Name":  "ContentDistributionDB",
+                          "Type":  "database"
+                      },
+                      {
+                          "Name":  "vodBackendDB",
+                          "Type":  "database"
+                      },
+                      {
+                          "Name":  "L2VBackendDB",
+                          "Type":  "database"
+                      },
+                      {
+                          "Name":  "liveBackendDB",
+                          "Type":  "database"
+                      },
+                      {
+                          "Name":  "ListingsSettingsDB",
+                          "Type":  "database"
+                      },
+                      {
+                          "Name":  "eventLogDB",
+                          "Type":  null
+                      },
+                      {
+                          "Name":  "SubscriberActivityDB",
+                          "Type":  "database"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5BEDB001\\\u0027LIVEDB\u0027 failed: No such host is known"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MDB001",
+        "Roles":  [
+                      {
+                          "Name":  "MDSFileStore",
+                          "Type":  "other"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MDB001\\MDB",
+        "Roles":  [
+                      {
+                          "Name":  "CommonDB",
+                          "Type":  "database"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5MDB001\\\u0027MDB\u0027 failed: No such host is known"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5NTP1",
+        "Roles":  [
+                      {
+                          "Name":  "ntp",
+                          "Type":  "other"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5NTP1\u0027 failed: No such host is known"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5NTP2",
+        "Roles":  [
+                      {
+                          "Name":  "ntp",
+                          "Type":  "other"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5NTP2\u0027 failed: No such host is known"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "VodImportPreprocessor",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5VCTRL001",
+        "Roles":  [
+                      {
+                          "Name":  "vodCreatorControllerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ContentDistributionControllerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "vodImportPreprocessorService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "VODCreatorService",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5VCRT001",
+        "Roles":  [
+                      {
+                          "Name":  "vodCreatorStation",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "vodCreator",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "ContentDistributionServer",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MDIST001",
+        "Roles":  [
+                      {
+                          "Name":  "ContentDistributionServer",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5VMGMT001",
+        "Roles":  [
+                      {
+                          "Name":  "ossContentDistributionWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossVodBackendWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtVODBackend",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "BackendL2VRecService",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5RSERV001",
+        "Roles":  [
+                      {
+                          "Name":  "BackendLiveToVodRecServer",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "AcquisitionServiceV3",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5ASERV003",
+        "Roles":  [
+                      {
+                          "Name":  "acquisitionServiceV3",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "FARM01-ACQ-37",
+        "Roles":  [
+                      {
+                          "Name":  "acquisitionServiceV3",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027FARM01-ACQ-37\u0027 failed: This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5AMGMT001",
+        "Roles":  [
+                      {
+                          "Name":  "ossBackendBlackoutWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "LiveBackendManagement",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtBackendLiveToVod",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossLiveBackend",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossBackendLiveToVodWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "LOTTOSS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "AcquisitionServerCrashDetector",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvListingsSync",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSched",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "LottKeyGenerator",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5ACTRL001",
+        "Roles":  [
+                      {
+                          "Name":  "crashDetectorService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "acquisitionControllerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "BackendLiveToVodControllerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ListingsSyncService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "LOTTController",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ListingsLibrarian",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "LottKeyGenerator",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "AcquisitionServiceV3",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5ASERV002",
+        "Roles":  [
+                      {
+                          "Name":  "acquisitionServiceV3",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "AcquisitionServiceV3",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5ASERV004",
+        "Roles":  [
+                      {
+                          "Name":  "acquisitionServiceV3",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "AcquisitionServiceV3",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5ASERV001",
+        "Roles":  [
+                      {
+                          "Name":  "acquisitionServiceV3",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  {
+                              "Name":  "W3SVC",
+                              "Status":  "Running"
+                          },
+        "ComputerName":  "MSPBE5MDSAF001",
+        "Roles":  [
+                      {
+                          "Name":  "DistributedCache",
+                          "Type":  "other"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  {
+                              "Name":  "W3SVC",
+                              "Status":  "Running"
+                          },
+        "ComputerName":  "MSPBE5MDSAF002",
+        "Roles":  [
+                      {
+                          "Name":  "DistributedCache",
+                          "Type":  "other"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MMGMT001",
+        "Roles":  [
+                      {
+                          "Name":  "MDSManagementWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSSubscriberManagementWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtContracts",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "contractManagementService",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtMDSManagement",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DataGenerator Service",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "Ingestion Service",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvCatalogMaintainerService",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvFragmentGenerator",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "MdsBranchIngestor",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "MdsLiveIngestor",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "MdsSlabGenerator",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "SKA Key Generator",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MDSING001",
+        "Roles":  [
+                      {
+                          "Name":  "DataGeneratorService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "sessionKeyAuthority_KeyGenerator",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "MDSListingsLibrarian",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MdsSlabGenerator",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "sessionKeyAuthorityWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "IngestionService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "FragmentGeneratorService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MDSFE001",
+        "Roles":  [
+                      {
+                          "Name":  "MDSSubscriberDataWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSTokenGenerator",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSMediaResourceWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSVodWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSDvrDataWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "LicenseServer",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSSearchWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSExternalPurchaseWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSListingsWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSMediaCatalog",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSContractWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "MDSAuthWS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "NTP1",
+        "Roles":  [
+                      {
+                          "Name":  "ntp",
+                          "Type":  "other"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027NTP1\u0027 failed: No such host is known"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DServerService",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  null
+                              }
+                          ],
+        "ComputerName":  "MSPBR5DSERV103",
+        "Roles":  [
+                      {
+                          "Name":  "dserverService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DServerService",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  null
+                              }
+                          ],
+        "ComputerName":  "MSPBR5DSERV101",
+        "Roles":  [
+                      {
+                          "Name":  "dserverService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "Notification Delivery Service",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  null
+                              }
+                          ],
+        "ComputerName":  "MSPBR5CGSG021",
+        "Roles":  [
+                      {
+                          "Name":  "ListingsClientDataVirtualDirectory",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "clientUpgradeFiles",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "notificationDeliveryService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "WSRouter",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IPTV Edition TimeShift Server Service",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5TSSERV001",
+        "Roles":  [
+                      {
+                          "Name":  "timeshiftServerStore",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DServerService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  null
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5DSERV102",
+        "Roles":  [
+                      {
+                          "Name":  "dserverService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSched",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5BMGMT001",
+        "Roles":  [
+                      {
+                          "Name":  "ossNotificationsWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtChannelMap",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "bss",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "OssDPQueueManagementWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtVOD",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossURL",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossEPG",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossBranch",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossPPV",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossTimeShift",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossVodBranchWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossLiveDeploymentWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtLive2",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossDTT",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtRDP",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtTimeShift",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtPPV",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smtSMS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossRemoteRecord",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "smtDTT",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ossEAS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DVRScheduler",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvClientSnapshotService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5SFSG021",
+        "Roles":  [
+                      {
+                          "Name":  "dvrRemote",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ClientSnapshotService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "ServiceGroupSMSWS",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "notificationController",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "SGPrivatesessionKeyAuthorityWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvrScheduleUpdaterService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "SGTraceLog",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5HPNR011",
+        "Roles":  [
+                      {
+                          "Name":  "ossHighPriorityNotificationWS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBE5MFMAP001",
+        "Roles":  [
+
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IPTV Edition VOD VServer Service",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5VSERV002",
+        "Roles":  [
+                      {
+                          "Name":  "mediaStore",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5CFSG021",
+        "Roles":  [
+                      {
+                          "Name":  "notificationWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "clientEdgeMapWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "CertificateProxyWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "clientLoggerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "DPQueueManagementWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "mdWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "bootstrap",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvbSiWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "userstorePublicWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smsPublic",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvrV2WS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5CFSG011",
+        "Roles":  [
+                      {
+                          "Name":  "notificationWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "clientEdgeMapWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "CertificateProxyWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "clientLoggerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "DPQueueManagementWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "mdWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "bootstrap",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvbSiWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "userstorePublicWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "smsPublic",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvrV2WS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "SyncDiscovery Service",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5SYNC001",
+        "Roles":  [
+                      {
+                          "Name":  "SyncService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "DiscoveryService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "ContentDistributionReceiver",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5VDIST001",
+        "Roles":  [
+                      {
+                          "Name":  "ContentDistributionReceiver",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DVRScheduler",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvClientSnapshotService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5SFSG011",
+        "Roles":  [
+                      {
+                          "Name":  "dvrRemote",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "ClientSnapshotService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "ServiceGroupSMSWS",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "notificationController",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "SGPrivatesessionKeyAuthorityWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvrScheduleUpdaterService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "SGTraceLog",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "Notification Delivery Service",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5CGSG011",
+        "Roles":  [
+                      {
+                          "Name":  "ListingsClientDataVirtualDirectory",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "clientUpgradeFiles",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "notificationDeliveryService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "WSRouter",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "DVBChannelMap Import",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvDeliveryAgent",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvListingsSync",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSched",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "LiveBackend Update",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "PpvOfferUpdaterService",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "SKA Key Generator",
+                                  "Status":  "Running"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Running"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5SFBR001",
+        "Roles":  [
+                      {
+                          "Name":  "timeshiftControllerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dserverController",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "PlayReadyServer",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "LiveBackendUpdate",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "ppvOfferUpdaterService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "BranchFacade",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "sessionKeyAuthority_KeyGenerator",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "ListingsSyncService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "ListingsLibrarian",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "sessionKeyAuthorityWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "vodControllerWS",
+                          "Type":  "webservice"
+                      },
+                      {
+                          "Name":  "dvbChannelMapImportService",
+                          "Type":  "service"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "IPTV Edition VOD VServer Service",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvFileReplicatorService",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "IptvSessionManager",
+                                  "Status":  "Stopped"
+                              },
+                              {
+                                  "Name":  "W3SVC",
+                                  "Status":  "Stopped"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5VSERV001",
+        "Roles":  [
+                      {
+                          "Name":  "mediaStore",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Reachable"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5CDBE001",
+        "Roles":  [
+                      {
+                          "Name":  "JITSchedulerService",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "CloudDVRRecordingRecycler",
+                          "Type":  "service"
+                      },
+                      {
+                          "Name":  "CloudRecordingNotificationWS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBR5CDBE001\u0027 failed: No such host is known"
+    },
+    {
+        "ServiceStatus":  [
+                              {
+                                  "Name":  "No service found",
+                                  "Status":  "NA"
+                              }
+                          ],
+        "ComputerName":  "MSPBR5CDFE001",
+        "Roles":  [
+                      {
+                          "Name":  "VsppMappingWS",
+                          "Type":  "webservice"
+                      }
+                  ],
+        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBR5CDFE001\u0027 failed: No such host is known"
+    }
+]

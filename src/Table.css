@@ -1,0 +1,90 @@
+table tbody tr td {
+  border: 1px solid black;
+  text-align: left;
+  font-size: small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.5rem;
+  outline: 2px;
+  border-collapse: collapse;
+}
+
+.servertable tbody tr td thead{
+  border: 1px solid black;
+  text-align: left;
+  font-size: small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  outline: 2px;
+  border-collapse: collapse;
+  position: sticky;
+  padding: 0.5rem;
+}
+
+thead {
+  background-color: #ccc;
+  color: #222;
+  border: 1px solid;
+  font-size: small;
+}
+
+.table th{
+  padding: 0.8rem;
+  border-top: 0.5px solid #ddd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid;
+} 
+
+
+/* .table tbody tr {
+  border: 1px solid;
+  width: 800px;
+    overflow-y: scroll; 
+     top: 0;
+    bottom: 0;
+} */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  max-height: 500px;
+  background-color: #faf9f6;
+  position: relative;
+    width: 100%;
+    overflow: auto; 
+    overflow-x: auto;
+   padding: 30px; /* Add padding to table cells */
+   border-collapse: collapse; /* Collapse table borders */ 
+}
+
+
+
+.caption
+{
+  color: rgb(15, 15, 15);
+  font-size: x-large;
+}
+
+.header
+{
+  font-size: xx-small;
+  text-align: left;
+  color: #2d0bb6;
+}
+.searchstyle {
+  /* display:block; */
+  /* flex-direction:row-reverse; */
+  align-items:flex-start;
+  justify-content:left;
+    /* width: 70%; */
+    box-sizing: border-box;
+    margin-left: 90px;
+    /* margin-bottom:10px ; */
+    /* height: 20px; */
+}
+/* style={{ marginBottom: '10px', width: '25%', boxSizing: 'border-box'}}  */
+
+
+/* Login Css */

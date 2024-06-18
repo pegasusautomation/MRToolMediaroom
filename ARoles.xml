@@ -1,0 +1,1366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="roles.xsd">
+  <components>
+    <roledescriptions>
+      <machineRole location="LiveBackend"  role="ossLiveBackend" type="webservice" install="installed" description="Backend OSS webservice to manage services in the backend and to get drm keys from the backend">
+        <resource resource="ossLiveBackendWS" uri="http://%serverLayoutMachineRef:role=ossLiveBackend;%/OssLiveBackend/LiveBackendManagement.asmx"/>
+        <resource resource="FingerprintWS" uri="http://%serverLayoutMachineRef:role=ossLiveBackend;%/OssLiveBackend/Fingerprint.asmx"/>
+        <resource resource="BranchAccessWS" uri="http://%serverLayoutMachineRef:role=ossLiveBackend;%/OssLiveBackend/BranchAccess.asmx"/>
+        <resource resource="DataFeedService" uri="http://%serverLayoutMachineRef:role=ossLiveBackend;%/MdsLiveBackendDataFeedService/LiveBackendDataFeedService.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+      <machineRole role="ClientSnapshotService" type="service" install="installed" description="Client Snapshot Scheduler Service">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="acquisitionControllerWS" type="webservice" install="installed" description="service which distributes configuration information to Acquisition Servers, and track server status">
+        <resource resource="acquisitionControllerV3WS" uri="http://%serverLayoutMachineRef:role=acquisitionControllerWS;%/AcqCtrl/AcquisitionControllerWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="ossBackendBlackoutWS" type="webservice" install="installed" description="web service to setup software blackouts ">
+        <resource resource="serviceSubstitution" uri="http://%serverLayoutMachineRef:role=ossBackendBlackoutWS;%/ossServiceSubstitution/ServiceSubstitution.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="crashDetectorService" type="service" install="installed"  description="This service detects delays in pings from the acquisition servers and marks the servers as crashed in the database.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="LiveBackendUpdate" type="service" install="installed"  description="LiveBackendUpdate Service is reposible for updating the services and Get the DRM keys from backend">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="SyncService" type="service" install="installed"  description="SyncService is a TFTP server.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="DiscoveryService" type="service" install="installed"  description="DiscoveryService is a TFTP server.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="sessionKeyAuthority_KeyGenerator" type="service" install="installed" description="This is an NT service that is responsible for periodically generating and protecting the keys that are stored in the DB">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="Branch"  role="WSRouter" type="webservice" install="installed" description="Provides a single point of contact for IPTV Edition clients so that other application Web services can reside in other security zones">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="sessionKeyAuthorityWS" type="webservice" install="installed" description="The private SKA_WS is the webservice interface to the Branch DB.  Clients of the SKA use the WS to enumerate the active queues and to fetch key belonging to them.">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=BranchDB;%;Database=BranchDB;Integrated Security=true;Packet Size=4096;%additionalOptions%" />
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=CommonDB;%;Database=CommonDB;Integrated Security=true;Packet Size=4096;%additionalOptions%" />
+        <resource resource="sessionKeyAuthority" uri="http://%serverLayoutMachineRef:role=sessionKeyAuthorityWS;%/sessionKeyAuthorityWS/SessionKeyAuthorityWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="Branch"  role="SGPrivatesessionKeyAuthorityWS" type="webservice" install="installed" description="The private SKA_WS is the webservice interface to the ServiceGroupDB.  Clients of the SKA use the WS to enumerate the active queues and to fetch key belonging to them.">
+        <resource resource="SGsessionKeyAuthority" uri="http://%serverLayoutMachineRef:role=SGPrivatesessionKeyAuthorityWS;%/SGPrivatesessionKeyAuthorityWS/SessionKeyAuthorityWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="DPQueueManagementWS" type="webservice" install="installed" description="installs the vod download and play web service">
+        <resource resource="DPQueueManagement" uri="http://%serverLayoutMachineRef:role=DPQueueManagementWS;%/DPQueueManagementWS" clientvisibility="routed"/>
+        <resource resource="WSRDPQueueManagement" uri="http://%serverLayoutMachineRef:role=DPQueueManagementWS;%/DPQueueManagementWS/DPQueueManagement.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="ossVodBranchWS" type="webservice" install="installed" description="this webservice provides oss branch apis for vod">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=ossVodBranchWS;%/ossVodBranchWS/branch.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="OssDPQueueManagementWS" type="webservice" install="installed" description="this webservice provides oss branch apis for queuemanagement">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=OssDPQueueManagementWS;%/OssDPQueueManagementWS/OssDPQueueManagementWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="VODBackend"  role="ossVodBackendWS" type="webservice" install="installed" description="this webservice provides oss backend apis for vod">
+        <resource resource="backend" uri="http://%serverLayoutMachineRef:role=ossVodBackendWS;%/ossVodBackendWS/backend.asmx"/>
+		<resource resource="VODBackendSyndicationService" uri="http://%serverLayoutMachineRef:role=ossVodBackendWS;%/VODBackendSyndication/VODBackendSyndicationService.VODBackendFeed.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+
+      <!-- Roles introduced by MDS -->
+      <machineRole location="Branch"  role="BranchFacade" type="webservice" install="installed" description="Branch facade to be called by MDS to retrieve subscriber data" >
+        <resource resource="branchFacade" uri="http://%serverLayoutMachineRef:role=BranchFacade;%/BranchFacade/BranchFacade.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+      <!--for now the location is the branch, till we create a location within the installer, which should be = MDS, using Branch for now.-->
+      <machineRole role="CommonDB" type="database" install="installed" description="Centralized content aggregation and management database." >
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=CommonDB;%;Database=CommonDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="PowerShell" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <!-- MDS roles -->
+      <machineRole role="DataGeneratorService" type="service" install="installed" description="The IPTV MDS DataGenerator Service is used to generate search indexes and data fragments." >
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="FragmentGeneratorService" type="service" install="installed" description="This service generates the metadata fragments that are exposed by the Mediaroom Data Service (MDS) components." >
+        <resource resource="MDSFragmentCacheVDir" uri="http://%serverLayoutMachineRef:role=FragmentGeneratorService;%/MDSFragmentCacheSource"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <!-- MDS roles -->
+      <machineRole role="IngestionService" type="service" install="installed" description="Aggregate branches and VOD backends data into one central place" >
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MdsSlabGenerator" type="service" install="installed" description="Generates slab files for each branch using the latest MasterListings" >
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+
+      <!-- MDS roles -->
+      <machineRole role="contractManagementService" type="webservice" install="installed" description="this webservice provides contract management apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=contractManagementService;%/MDSContractManagement/ContractManagementService.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="acquisitionServiceV2" type="service" install="installed" description="service which ingests content, applies DRM, repacketizes in RTP, generates Pip (if appropriate), and delivers the contents downstream">
+        <prerequisites>
+          <prerequisite Name="Windows2003"/>
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="acquisitionServiceV3" type="service" install="installed" description="service which ingests content, applies DRM, repacketizes in RTP, and delivers the contents downstream">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="Ndis"/>
+        </prerequisites>
+      </machineRole>
+      <!-- MDS roles -->
+      <machineRole role="MDSSubscriberManagementWS" type="webservice" install="installed" description="this webservice provides subscriber management apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSSubscriberManagementWS;%/MDSSubscriberManagement/SubscriberManagementService.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AspNetMvc4" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="smtContracts" type="webservice" install="installed" description="this webservice provides contract management ui for smt">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <!-- START MDS roles -->
+      <machineRole role="MDSSearchWS" type="webservice" install="installed" description="this webservice provides MPF App Facing search apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSSearchWS;%/MDSSearchWS/SearchServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSMediaResourceWS" type="webservice" install="installed" description="this webservice provides MPF App Facing Media Resource Playlist apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSMediaResourceWS;%/MDSMediaResourceWS/MediaResourceServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSMediaCatalog" type="webservice" install="installed" description="this MDS service provides MPF App Facing Catalog services">
+        <resource resource="mediaCatalogBase" uri="http://%serverLayoutMachineRef:role=MDSMediaCatalog;%"/>
+        <resource resource="discoveryTables" uri="http://%serverLayoutMachineRef:role=MDSMediaCatalog;%/MDSDiscoveryTables"/>
+        <resource resource="fragments" uri="http://%serverLayoutMachineRef:role=MDSMediaCatalog;%/FileCacheRoot"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="ApplicationRequestRoutingV25" />
+          <prerequisite Name="WebFarmManagementV1" />
+          <prerequisite Name="URLRewriteModuleV2" />
+          <prerequisite Name="ExternalCacheV1" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSSubscriberDataWS" type="webservice" install="installed" description="this webservice provides MDS Subscriber apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSSubscriberDataWS;%/MDSSubscriberDataWS/SubscriberDataServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSExternalPurchaseWS" type="webservice" install="installed" description="this webservice provides MDS External Purchase apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSExternalPurchaseWS;%/MDSExternalPurchaseWS/ExternalPurchaseServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSDvrDataWS" type="webservice" install="installed" description="this webservice provides MDS Dvr Data apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSDvrDataWS;%/MDSDvrDataWS/DvrDataServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AspNetMvc4" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSListingsWS" type="webservice" install="installed" description="this webservice provides MDS Listings REST apis">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSListingsWS;%/MDSListingsWS/Default.asax"/>
+        <resource resource="ListingsRestService" uri="http://%serverLayoutMachineRef:role=MDSListingsWS;%/MDSListingsWS/ListingsRestService.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AspNetMvc4" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSAuthWS" type="webservice" install="installed" description="this webservice provides MDS Authentication REST apis">
+        <resource resource="branch" uri="https://%serverLayoutMachineRef:role=MDSAuthWS;%/MDSAuthWS/rightsmanager.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSVodWS" type="webservice" install="installed" description="this webservice provides MDS VOD REST apis">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSVodWS;%/MDSVodWS/Default.asax"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AspNetMvc4" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSTokenGenerator" type="webservice" install="installed" description="this webapp provides token generator service for mds clients">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSTokenGenerator;%/MdsTokenGenerator/GetMdsToken.ashx" clientvisibility="visible" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="CloudDVRKeyServer" type="webservice" install="installed" description="this webapp provides DRM key generation for cloud DVR subsystem">
+        <resource resource="vspp" uri="http://%serverLayoutMachineRef:role=CloudDVRKeyServer;%/CloudDVRKeyServer/Default.asax"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AspNetMvc4" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="CloudDVRLicenseServerProxy" type="webservice" install="installed" description="this is a PlayReady license server proxy for cloud DVR">
+        <resource resource="RightsManager" uri="http://%serverLayoutMachineRef:role=CloudDVRLicenseServerProxy;%/CloudDVRLicenseServerProxy/rightsmanager.asmx" clientvisibility="visible" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="CloudDVRPlayReadyServer" type="webservice" install="installed" description="Installs the PlayReady License Server for cloud DVR">
+        <resource resource="RightsManager" uri="http://%serverLayoutMachineRef:role=CloudDVRPlayReadyServer;%/CloudDVRPlayReadyServer/RightsManager.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="LicenseServer" type="webservice" install="installed" description="this is a PlayReady license server">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=LicenseServer;%/LicenseServerProxy/rightsmanager.asmx" clientvisibility="visible" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSEntitlementAdapterWS" type="webservice" install="installed" description="this is a MDSEntitlementAdapterWS web service">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSEntitlementAdapterWS;%/MDSEntitlementAdapter/Default.asax" clientvisibility="visible" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="smtMDSManagement" type="webservice" install="installed" description="this webservice provides MDS registration management ui for smt">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSFileStore" type="other" install="installed" description="MDS File Share">
+        <resource resource="MDSFileStoreRoot" uri="\\%serverLayoutMachineRef:role=MDSFileStore;%\MDSFileStoreRoot\"/>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSSpeakerService" type="webservice" install="installed" description="The role provides integration functions with 3rd party speaker services.">
+        <resource resource="MDSSpeakerService" uri="http://%serverLayoutMachineRef:role=MDSSpeakerService;%/MDSSpeakerService/AccountLink.svc" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="smtMDSSpeakerService" type="webservice" install="installed" description="this webservice provides MDS speaker services registration management ui for smt">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="ExternalTimeshiftWS" type="webservice" install="installed" description="this webservice figures out playback time window against client request and gets playback manifest from VSPP for external timeshift">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="AspNetMvc4" />
+          <prerequisite Name="WebAppInit" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <!-- END MDS roles -->
+      <machineRole location="VODBackend"  role="vodBackendDB" type="database" install="installed" description="this database stores all vod asset metadata, import and deploy status">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=vodBackendDB;%;database=vodBackend;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="clientEdgeMapWS" type="webservice" install="installed" description="this web service gives the IPTV client information about which DServer to connect to to obtain tuning support for a particular live service">
+        <resource resource="clientEdgeMapWS" uri="http://%serverLayoutMachineRef:role=clientEdgeMapWS;%/EdgeControllerFromClientWS" clientvisibility="routed"/>
+        <resource resource="dserverMap" uri="http://%serverLayoutMachineRef:role=clientEdgeMapWS;%/EdgeControllerFromClientWS/EdgeControllerFromClientWS.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="dserverController" type="webservice" install="installed" description="this web service configures the DServer cluster, telling individual DServers which services to carry">
+        <resource resource="edgeControllerFromClientWS" uri="http://%serverLayoutMachineRef:role=clientEdgeMapWS;%/EdgeControllerFromClientWS/EdgeControllerFromClientWS.asmx"/>
+        <resource resource="edgeControllerFromEdgeWS" uri="http://%serverLayoutMachineRef:role=dserverController;%/EdgeControllerFromEdgeWS/EdgeControllerFromEdgeWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="dserverService" type="service" install="installed"  description="this service buffers live services and provides instant channel change and reliable UDP to downstream clients">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="Ndis"/>
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="BranchDB" type="database" install="installed" description="Manage subscriber data and device specific information and resource rights as well" >
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=BranchDB;%;Database=BranchDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ServiceGroupDB" type="database" install="installed" description="Manage subscriber data and device specific information and resource rights as well at the service Group" >
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=ServiceGroupDB;%;Database=ServiceGroupDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="dvrV2WS" type="webservice" install="installed" description="The DVR Scheduler Webservices allows the clients to manage the schedules. The DVR Schedule Updater Windows Service is also a part of this role and it stamps a new recording event in the new day of the updated guide for manual recurring recordings.">
+        <resource resource="dvrV2WS" uri="http://%serverLayoutMachineRef:role=dvrV2WS;%/dvrV2" clientvisibility="routed"/>
+        <resource resource="schedulerV2" uri="http://%serverLayoutMachineRef:role=dvrV2WS;%/dvrV2/DVRScheduler.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="dvrScheduleUpdaterService" type="service" install="installed" description="The IPTV DVR Scheduler Service helps in schedule reconciliation process.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="dvbChannelMapImportService" type="service" install="installed" description="The IPTV DVB ChannelMap Import Service.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="dvbSiWS" type="webservice" install="installed" description="Provides channel map information for IPTV Edition clients">
+        <resource resource="dvbSiWS" uri="http://%serverLayoutMachineRef:role=dvbSiWS;%/dvbSiWS" clientvisibility="routed" />
+        <resource resource="DvbSiChannelMap" uri="http://%serverLayoutMachineRef:role=dvbSiWS;%/dvbSiWS/DvbSiChannelMap.ashx" routeable="true"/>
+        <resource resource="DvbSiChannelMapTime" uri="http://%serverLayoutMachineRef:role=dvbSiWS;%/dvbSiWS/DvbSiChannelMapTime.ashx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <!-- Listings-related roles -->
+      <machineRole role="ListingsLibrarian" type="webservice" install="installed" description="Stores and manages metadata for Ericsson TV IPTV Edition." >
+        <resource resource="LibrarianService" uri="http://%serverLayoutMachineRef:role=ListingsLibrarian;%/ListingsLibrarianWS/LibrarianService.asmx"/>
+        <resource resource="ListingsCacheBaseURL" uri="http://%serverLayoutMachineRef:role=ListingsLibrarian;%/ListingsLibrarianWS/LibrarianData/"/>
+        <resource resource="BulkDataLibrarianService" uri="http://%serverLayoutMachineRef:role=ListingsLibrarian;%/ListingsLibrarianLocalWS/BulkDataLibrarianService.asmx"/>
+        <resource resource="LibrarianLocalService" uri="http://%serverLayoutMachineRef:role=ListingsLibrarian;%/ListingsLibrarianLocalWS/LibrarianLocalService.asmx"/>
+        <resource resource="ListingsLocalCacheBaseURL" uri="http://%serverLayoutMachineRef:role=ListingsLibrarian;%/ListingsLibrarianWS/LibrarianData/"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+          <location Name="LiveBackend"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="ListingsSyncService" type="service" install="installed" description=" Ingest EPG files (MasterListings and Slabs files) from MDS." >
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+          <location Name="LiveBackend"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="MDSListingsLibrarian" type="webservice" install="installed" description="Stores and manages metadata for Ericsson TV IPTV Edition." >
+        <resource resource="LibrarianService" uri="http://%serverLayoutMachineRef:role=MDSListingsLibrarian;%/MDSListingsLibrarianWS/MDSLibrarianService.asmx"/>
+        <resource resource="ListingsCacheBaseURL" uri="http://%serverLayoutMachineRef:role=MDSListingsLibrarian;%/MDSListingsLibrarianWS/LibrarianData/"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="ListingsSettingsDB" type="database" install="installed" description="Installs the database in which listings librarian permanent data is stored">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=ListingsSettingsDB;%;database=ListingsSettings;Integrated Security=true;Packet Size=4096;%additionalOptions%" />
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+          <location Name="LiveBackend"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="Branch"  role="ListingsClientDataVirtualDirectory" type="service" install="installed" description="This service manages the listings data delivery for IPTV services." >
+        <resource resource="ListingsClientDataVirtualDirectory" uri="http://%serverLayoutMachineRef:role=ListingsClientDataVirtualDirectory;%/ListingsClientDataDelivery" clientvisibility="visible"/>
+        <resource resource="listingsClientDataDeliveryBaseUrl" uri="http://%serverLayoutMachineRef:role=ListingsClientDataVirtualDirectory;%/ListingsClientDataDelivery" routeable="true" partial="true" verbs="BOTH"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="LiveBackend"  role="liveBackendDB" type="database" install="installed" description="this database carries configuration information for the services distributed by an acquisition backend">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=liveBackendDB;%;Database=LiveBackend;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="mdWS" type="webservice" install="installed" description="Provides the media discovery public Web service (mdWS) and receives requests for media descriptions from IPTV Edition clients.">
+        <resource resource="mdWS" uri="http://%serverLayoutMachineRef:role=mdWS;%/MDWS" clientvisibility="routed"/>
+        <resource resource="mediaDiscovery" uri="http://%serverLayoutMachineRef:role=mdWS;%/MDWS/MediaDiscovery.asmx" routeable="true"/>
+
+        <resource resource="SiChannelMap" uri="http://%serverLayoutMachineRef:role=mdWS;%/MDWS/SiChannelMap.ashx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="mediaStore" type="webservice" install="installed" description="this machine is where all vod media files are deployed to and is accessed by the client">
+        <resource resource="" uri="http://%serverLayoutMachineRef:role=mediaStore;%/Media"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="IISMediaPack41" />
+          <prerequisite Name="SmoothStreaming" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="notificationController" type="webservice" install="installed" description="a server facing web service that provides the interface to the notification DB for other services in the system">
+        <resource resource="notificationController" uri="http://%serverLayoutMachineRef:role=notificationController;%/notificationController/notificationController.asmx"/>
+        <resource resource="notificationGetJobs" uri="http://%serverLayoutMachineRef:role=notificationController;%/notificationController/GetDeliveryJobs.ashx"/>
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="notificationWS" type="webservice" install="installed" description="a client facing web service that allows the client to interact with the notification system">
+        <resource resource="notificationWS" uri="http://%serverLayoutMachineRef:role=notificationWS;%/notification" clientvisibility="routed"/>
+        <resource resource="notification" uri="http://%serverLayoutMachineRef:role=notificationWS;%/notification/clientNotification.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="notificationDeliveryService" type="service" install="installed" description="is a windows NT service that runs in the DMZ tier (tier 2)">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ntp" type="other" install="external" description="Network Time Server">
+        <resource resource="ntp" uri="http://%serverLayoutMachineRef:role=ntp;%:123" clientvisibility="visible"/>
+        <resource resource="" uri="http://%serverLayoutMachineRef:role=ntp;%:123" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="bss" type="webservice" install="installed" description="BSS webservice to manage devices, accounts, subscriber groups, packages, offers, grants ">
+        <resource resource="packageManagement" uri="http://%serverLayoutMachineRef:role=bss;%/bss/PackageManagement.asmx" />
+        <resource resource="principalManagement" uri="http://%serverLayoutMachineRef:role=bss;%/bss/PrincipalManagement.asmx"/>
+        <resource resource="offerManagement" uri="http://%serverLayoutMachineRef:role=bss;%/bss/OfferManagement.asmx" />
+        <resource resource="grantManagement" uri="http://%serverLayoutMachineRef:role=bss;%/bss/GrantManagement.asmx" />
+        <resource resource="billingRecordManagement" uri="http://%serverLayoutMachineRef:role=bss;%/bss/BillingRecordManagement.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossEAS" type="webservice" install="installed" description="OSS EAS webservice to manage EAS notifications">
+        <resource resource="EasWS" uri="http://%serverLayoutMachineRef:role=ossEAS;%/EAS/Eas.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="dvrRemote" type="webservice" install="installed" description="Remote record web service">
+        <resource resource="remoteRecordOssFacade" uri="http://%serverLayoutMachineRef:role=dvrRemote;%/remoteDVR/RemoteRecordOssFacade.asmx" />
+        <resource resource="remoteRecordOssFacade2" uri="http://%serverLayoutMachineRef:role=dvrRemote;%/remoteDVR/RemoteRecordOssFacade2.asmx" />
+        <resource resource="remoteRecord" uri="http://%serverLayoutMachineRef:role=dvrRemote;%/remoteDVR/RemoteRecordScheduler.asmx" />
+        <resource resource="remoteRecord2" uri="http://%serverLayoutMachineRef:role=dvrRemote;%/remoteDVR/RemoteRecordScheduler2.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="SGTraceLog" type="webservice" install="installed" description="Client Trace Log web service">
+        <resource resource="traceLog" uri="http://%serverLayoutMachineRef:role=SGTraceLog;%/TraceLogger/TraceLog.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtCore" type="webservice" install="installed" description="Installs the common files that are shared by all the SMT modules. This role must always be installed on the machine where SMT is installed">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtChannelMap" type="webservice" install="installed" description="this role installs the channel map management SMT to manage channel maps, media descriptions, packages, offers and grants">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtVOD" type="webservice" install="installed" description="this role installs the vod management web based SMT tool to manage everything related to the vod subsystem">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="VODBackend"  role="smtVODBackend" type="webservice" install="installed" description="this role installs the vod management web based SMT tool to manage everything related to the backend vod subsystem">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtLive2" type="webservice" install="installed" description="this machine holds the service management tool for live services">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtRDP" type="webservice" install="installed" description="This role installs Subscriber Management SMT to manage XHTML/Images applications">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtSMS" type="webservice" install="installed" description="This role installs Subscriber Management SMT to manage devices, accounts and subscriber groups">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smsPublic" type="webservice" install="installed" description="SMS Client facing web service for Purchase, ClientRights and keys">
+        <resource resource="smsPublic" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms" clientvisibility="routed"/>
+        <resource resource="ClientRights" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms/ClientRights.asmx" routeable="true"/>
+        <resource resource="Purchase" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms/Purchase.asmx" routeable="true"/>
+        <resource resource="GetRights" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms/GetRights.ashx" routeable="true"/>
+        <resource resource="GetGroupGrantedKeys" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms/GetGroupGrantedKeys.ashx" routeable="true"/>
+        <resource resource="GetIndividuallyGrantedKeys" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms/GetIndividuallyGrantedKeys.ashx" routeable="true"/>
+        <resource resource="RightsManager" uri="http://%serverLayoutMachineRef:role=smsPublic;%/clientsms/RightsManager.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ServiceGroupSMSWS" type="service" install="installed" description="Service Group SMS Webservice">
+        <resource resource="ServiceGroupSMSManagement" uri="http://%serverLayoutMachineRef:role=ServiceGroupSMSWS;%/serviceGroupSMS/ServiceGroupSMSManagement.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="test" type="webservice" description="TestWS to test the client." install="installed">
+        <resource resource="test" uri="http://%serverLayoutMachineRef:role=test;%/test" clientvisibility="visible"/>
+        <resource resource="sm" uri="http://%serverLayoutMachineRef:role=test;%/test/sm.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="userstorePublicWS" type="webservice" install="installed" description="Provides the client-facing Web service for accessing and changing the device and user data.">
+        <resource resource="userstorePublicWS" uri="http://%serverLayoutMachineRef:role=userstorePublicWS;%/clientuserstore" clientvisibility="routed"/>
+        <resource resource="userStore" uri="http://%serverLayoutMachineRef:role=userstorePublicWS;%/clientuserstore/UserStore.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="VODBackend"  role="vodCreatorControllerWS" type="webservice" install="installed" description="machine that will assign work to vod creator stations">
+        <resource resource="vodCreatorControllerWS" uri="http://%serverLayoutMachineRef:role=vodCreatorControllerWS;%/vodCreatorControllerWS/vodCreatorControllerWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="ossLiveDeploymentWS" type="webservice" install="installed" description="Exposes external APIs for live deployment">
+        <resource resource="ossLiveDeploymentWS" uri="http://%serverLayoutMachineRef:role=ossLiveDeploymentWS;%/ossLiveDeploymentWS/LiveDeployment.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+
+      <machineRole location="VODBackend"  role="vodCreator" type="service" install="installed" description="machine that will create the rtp files for vod assets">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="DesktopExp"/>
+        </prerequisites>
+      </machineRole>
+      <machineRole location="VODBackend"  role="vodCreatorStation" type="service" install="installed" description="machine that will create the rtp files for vod assets">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="VODBackend"  role="vodImportPreprocessorService" type="service" install="installed" description="machine that will run the scheduler to get import tasks and pass them along to the import service">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="vodControllerWS" type="webservice" install="installed" description="installs the vod controller webservice that manages vservers and session">
+        <resource resource="vodController" uri="http://%serverLayoutMachineRef:role=vodControllerWS;%/VODControllerWS/VODControllerPrivate.asmx"/>
+        <resource resource="vodControllerWCF" uri="http://%serverLayoutMachineRef:role=vodControllerWS;%/VODControllerWS/VODControllerEx.svc"/>
+        <resource resource="vodControllerHandler" uri="http://%serverLayoutMachineRef:role=vodControllerWS;%/VODControllerWS/GetData.ashx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="bootstrap" type="webservice" install="installed" description="Provides client bootstrap functionality. The bootstrap Web service is the first service that IPTV Edition clients encounter when they go through their startup sequence">
+        <resource resource="bootstrap" uri="http://%serverLayoutMachineRef:role=bootstrap;%/bootstrap/bootstrap.asmx" routeable="true" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="activityLogDB" type="database" install="installed" description="Installs the database in which all the subscriber activities are stored">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=activityLogDB;%;database=ActivityLog;Integrated Security=true;Packet Size=4096;%additionalOptions%" />
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="clientTraceLogDB" type="database" install="installed" description="Installs the database in which all the client trace logs">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=clientTraceLogDB;%;database=ClientTraceLog;Integrated Security=true;Packet Size=4096;%additionalOptions%" />
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+          <!--<prerequisite Name="NET452" /><prerequisite Name="NET403" />-->
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="clientLoggerWS" type="webservice" install="installed" description="Client facing web service which is used for uploading client events and subscriber activities">
+        <resource resource="clientLoggerWS" uri="http://%serverLayoutMachineRef:role=clientLoggerWS;%/log" clientvisibility="routed"/>
+        <resource resource="clientLogger" uri="http://%serverLayoutMachineRef:role=clientLoggerWS;%/Log/ClientLogger.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+
+      <machineRole location="Branch"  role="ossBranch" type="webservice" install="installed" description="OSS webservice to manage branch and service groups">
+        <resource resource="BranchManagement" uri="http://%serverLayoutMachineRef:role=ossBranch;%/ossBranch/BranchManagement.asmx"/>
+        <resource resource="branchDataFeedService" uri="http://%serverLayoutMachineRef:role=ossBranch;%/MdsBranchDataFeedService/BranchDataFeedService.svc"/>
+        <!--description="Expose branch data to be collected by the MDS Ingestion Service"-->
+        <resource resource="branchBlackout" uri="http://%serverLayoutMachineRef:role=ossBranch;%/ossBranchBlackout/Blackouts.asmx"/>
+        <!--description="web service on branch to setup software blackouts " -->
+        <resource resource="channelManagement" uri="http://%serverLayoutMachineRef:role=ossBranch;%/ossChannel/ChannelManagement.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossRemoteRecord" type="service" install="installed" description="OSS webservice to manage remote dvr recording by external account id">
+        <resource resource="RemoteRecord" uri="http://%serverLayoutMachineRef:role=ossRemoteRecord;%/OssRemoteRecord/RemoteRecord.asmx"/>
+        <resource resource="RemoteRecord2" uri="http://%serverLayoutMachineRef:role=ossRemoteRecord;%/OssRemoteRecord/RemoteRecord2.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossURL" type="webservice" install="installed" description="This webservice manages URL asset creation, deletion, and retrieval, as well as deploying URL metadata">
+        <resource resource="URLManagement" uri="http://%serverLayoutMachineRef:role=ossURL;%/ossURL/URLManagement.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossPPV" type="webservice" install="installed" description="This webservice manages PPV asset creation, deletion, and retrieval, as well as deploying PPV metadata">
+        <resource resource="PPVManagement" uri="http://%serverLayoutMachineRef:role=ossPPV;%/ossPPV/PPVManagement.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ppvOfferUpdaterService" type="service" install="installed" description="This Windows service updates PPV offers to reflect the latest listings data.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossDTT" type="webservice" install="installed" description="This webservice manages DTT service creation, deletion, and retrieval">
+        <resource resource="DTTManagement" uri="http://%serverLayoutMachineRef:role=ossDTT;%/ossDTT/DTTManagement.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossEPG" type="webservice" install="installed" description="This webservice provides an interface to EPG data">
+        <resource resource="epg" uri="http://%serverLayoutMachineRef:role=ossEPG;%/ossEPG/OSSEPG.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtPPV" type="webservice" install="installed" description="This webservice provides an interface to managing PPV assets and PPV metadata">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtDTT" type="webservice" install="installed" description="This webservice provides an interface to managing DTT services">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossNotificationsWS" type="webservice" description="OSS Notification Web Services allow external applications to send notifications to IPTV clients to display messages on the screen or collect diagnostic information from the client." install="installed">
+        <resource resource="UI" uri="http://%serverLayoutMachineRef:role=ossNotificationsWS;%/ossNotificationsWS/UI.asmx" />
+        <resource resource="Diagnostics" uri="http://%serverLayoutMachineRef:role=ossNotificationsWS;%/ossNotificationsWS/Diagnostics.asmx" />
+        <resource resource="Configuration"  uri="http://%serverLayoutMachineRef:role=ossNotificationsWS;%/ossNotificationsWS/Configuration.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossHighPriorityNotificationWS" type="webservice" description="OSS High Priority Notification Web Services allow external applications to send notifications to IPTV clients to display messages on the screen or collect diagnostic information from the client." install="installed">
+        <resource resource="HighPriorityUI" uri="http://%serverLayoutMachineRef:role=ossHighPriorityNotificationWS;%/ossHighPriorityNotificationWS/UI.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+
+      <machineRole location="LiveBackend"  role="LiveBackendManagement" type="webservice" install="installed" description="SMT backend management tool">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch"  role="CertificateProxyWS" type="webservice" install="installed" description="Clients obtain SSL certs for Tasman from this webservice.">
+        <resource resource="CertificateProxyWS" uri="http://%serverLayoutMachineRef:role=CertificateProxyWS;%/CertificateProxyWS" routeable="true" clientvisibility="routed"/>
+        <resource resource="WSRCertificateProxyWS" uri="http://%serverLayoutMachineRef:role=CertificateProxyWS;%/CertificateProxyWS/CertificateProxyWS.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="VODBackend" role="ossContentDistributionWS" type="webservice" install="installed"
+									 description="This webservice contains APIs for external interaction with the Content Distribution system">
+        <resource resource="OssContentDistributionWS"
+									  uri="http://%serverLayoutMachineRef:role=ossContentDistributionWS;%/ossContentDistributionWS/ossContentDistribution.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="VODBackend" role="ContentDistributionControllerWS" type="webservice" install="installed"
+									 description="This webservice exposes APIs that Content Distribution Servers and Receivers can call">
+        <resource resource="ContentDistributionControllerWS"
+									  uri="http://%serverLayoutMachineRef:role=ContentDistributionControllerWS;%/ContentDistributionControllerWS/ContentDistributionController.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="VODBackend" role="ContentDistributionDB" type="database" install="installed"
+									 description="This database persists information about servers, receivers and tasks">
+        <resource resource=""
+									  uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=ContentDistributionDB;%;database=ContentDistributionDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="VODBackend" role="ContentDistributionServer" type="service" install="installed"
+									 description="Processes Content Distribution tasks and sends information from backends to branches">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="Ndis"/>
+        </prerequisites>
+      </machineRole>
+
+      <machineRole location="Branch" role="ContentDistributionReceiver" type="service" install="installed"
+									 description="Processes data received from Content Distribution Servers and stores the data to disk">
+        <resource resource="ReceiverStaging" uri="http://%serverLayoutMachineRef:role=ContentDistributionReceiver;%/ReceiverStaging"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="Ndis"/>
+        </prerequisites>
+      </machineRole>
+      <machineRole role="clientUpgradeFiles" type="webservice" install="installed" description="Web based data provider for client upgrade files">
+        <!-- The following formats are used to resolve a path based on arguments passed in from the client. {0}=Manufacturer/Make, {1}=Model, and {2} is the version -->
+        <resource resource="ApplicationFormat" uri="http://%serverLayoutMachineRef:role=clientUpgradeFiles;%/ClientUpgrades/{0}/{1}/Application_{2}.dat"/>
+        <resource resource="WSRApplicationFormat" uri="http://%serverLayoutMachineRef:role=clientUpgradeFiles;%/ClientUpgrades/" routeable="true" partial="true" verbs="BOTH" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Analytics" role="SubscriberActivityDB" type="database" install="installed" description="This role installs SubscriberActivityDB components and SQL jobs">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=SubscriberActivityDB;%;Database=SubscriberActivity;Integrated Security=true;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="SqlServer2014" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Analytics"  role="SSISSetup" type="other" install="installed"  description="This role installs SSIS packages for Mediaroom Data Warehouse">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <!--<prerequisite Name="SSIS" />-->
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Analytics"  role="dwTools" type="other" install="installed"  description="This role installs Mediaroom Data Warehouse configuration console app">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Analytics"  role="dwDeliveryAgent" type="service" install="installed"  description="This role installs Mediaroom Data Warehouse Delivery Agent">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="smtTimeShift" type="webservice" install="installed" description="This role installs Subscriber Management SMT to manage TimeShift configurations">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="ossTimeShift" type="webservice" install="installed" description="This webservice manages TimeShift subsystem">
+        <resource resource="TimeShiftManagement" uri="http://%serverLayoutMachineRef:role=ossTimeShift;%/ossTimeShift/OSSTimeShift.asmx" />
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="timeshiftControllerWS" type="webservice" install="installed" description="Installs the timeshift controller web service">
+        <resource resource="timeshiftController" uri="http://%serverLayoutMachineRef:role=timeshiftControllerWS;%/TimeShiftControllerWS/TimeShiftControllerWS.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="timeshiftServerStore" type="webservice" install="installed" description="This machine is where all timeshift media files are deployed to and is accessed by the client">
+        <resource resource="timeshiftServerStore" uri="http://%serverLayoutMachineRef:role=timeshiftServerStore;%/TimeShiftMedia"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <!-- MDS roles -->
+      <machineRole role="MDSManagementWS" type="webservice" install="installed" description="this webservice provides MDS Management apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSManagementWS;%/MDSManagement/MDSManagement.svc"/>
+        <resource resource="data" uri="http://%serverLayoutMachineRef:role=MDSManagementWS;%/MDSManagement/MDSManagementServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <!-- MDS roles -->
+      <machineRole role="MDSContractWS" type="webservice" install="installed" description="this webservice provides MDS Contract apis for mds">
+        <resource resource="branch" uri="http://%serverLayoutMachineRef:role=MDSContractWS;%/MDSContractWS/ContractServices.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="PowerShell" />
+          <prerequisite Name="AppFabricClient11" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="DistributedCache" type="other" install="external" description="Distributed Cache for MDS">
+        <roleLocations>
+          <location Name="DataService"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="L2VBackendDB" type="database" install="installed" description="this database store configuration by backend live2vod">
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=L2VBackendDB;%;Database=L2VBackendDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="ossBackendLiveToVodWS" type="webservice" install="installed" description="Backend OSSLiveToVod webservice to manage services in the backend">
+        <resource resource="BackendL2VManagement" uri="http://%serverLayoutMachineRef:role=ossBackendLiveToVodWS;%/ossBackendL2VWS/BackendLiveToVod.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="smtBackendLiveToVod" type="webservice" install="installed" description="SMT backend LiveToVod management tool">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="BackendLiveToVodControllerWS" type="webservice" install="installed" description="service which distributes configuration information to BackendLiveToVod controller">
+        <resource resource="BackendLiveToVodControllerWS" uri="http://%serverLayoutMachineRef:role=BackendLiveToVodControllerWS;%/BackendL2VControllerWS/L2VController.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="BackendLiveToVodRecServer" type="service" install="installed"  description="This server records live streams in real time from Encoder">
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="DesktopExp"/>
+        </prerequisites>
+      </machineRole>
+      <machineRole location="Branch"  role="PlayReadyServer" type="webservice" install="installed" description="Installs the PlayReady Server for non-Mediaroom-Aware clients">
+        <resource resource="RightsManager" uri="http://%serverLayoutMachineRef:role=PlayReadyServer;%/PlayReadyServer/RightsManager.asmx" routeable="true"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole role="FileReplicationManifestsDiscoveryService" type="other" install="notinstalled" description="Mimic a discovery service the File Replicator Windows Services can use to discover Manifests URL">
+        <resource resource="PostersManifest" uri="http://%serverLayoutMachineRef:role=IngestionService;%/FileReplication/Catalogs/PostersManifest.xml"/>
+        <resource resource="DiscoveryTablesManifest" uri="http://%serverLayoutMachineRef:role=FragmentGeneratorService;%/FileReplication/Catalogs/DiscoveryTablesManifest.xml"/>
+        <resource resource="FragmentsManifest" uri="http://%serverLayoutMachineRef:role=FragmentGeneratorService;%/FileReplication/Catalogs/FragmentsManifest.xml"/>
+        <resource resource="SearchIndexFilesManifest" uri="http://%serverLayoutMachineRef:role=DataGeneratorService;%/FileReplication/Catalogs/SearchIndexFilesManifest.xml"/>
+        <resource resource="CDVROnGuideManifest" uri="http://%serverLayoutMachineRef:role=FragmentGeneratorService;%/FileReplication/Catalogs/CDVROnGuideManifest.xml"/>
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="NdisIm"  role="Mediaroom_NdisIm" type="service" install="installed"  description="NdisIm drivers for Mediaroom">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="LOTTIngestor" type="webservice" install="installed"  description="Live OTT Ingestor module for Mediaroom">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="IISMediaPack41" />
+          <prerequisite Name="LiveSmoothStreaming" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="LOTTController" type="webservice" install="installed"  description="Live OTT Controller services for Mediaroom">
+        <resource resource="LOTTControllerWS" uri="https://%serverLayoutMachineRef:role=LOTTController;%/LottController/LottController.svc"/>
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+          <prerequisite Name="IIS8" />          
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="LOTTOSS" type="webservice" install="installed" description="Live OTT OSS services for Mediaroom">
+        <resource resource="LOTTOssWS" uri="http://%serverLayoutMachineRef:role=LOTTOSS;%/LottOss/LottOss.svc"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+          <prerequisite Name="WCFHttpActivation45" />
+        </prerequisites>
+      </machineRole>
+      <machineRole location="LiveBackend"  role="LottKeyGenerator" type="service" install="installed" description="Live OTT Key Generator">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+
+      <!-- cDvr roles -->
+      <machineRole role="CloudDVRDB" type="database" install="installed" description="Cloud DVR Database." >
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=CloudDVRDB;%;Database=CloudDVRDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="SqlServer2014SP2" />
+          <prerequisite Name="Windows2012R2" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="VSPPServiceMappingDB" type="database" install="installed" description="VSPP Service Mapping Database." >
+        <resource resource="" uri="Application Name=%applicationname%;Server=%serverLayoutMachineRef:role=VSPPServiceMappingDB;%;Database=VSPPServiceMappingDB;Integrated Security=true;Packet Size=4096;%additionalOptions%"/>
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="SqlServer2014" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole role="VsppMappingWS" type="webservice" install="installed" description="this webservice provides Vspp Mapping apis">
+        <resource resource="Manager" uri="http://%serverLayoutMachineRef:role=VsppMappingWS;%/VsppMappingWS/Manager.asmx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="Branch"  role="JITSchedulerService" type="service" install="installed" 
+        description="This Windows service pulls the cloud DVR requests from cDVRDB and pushes them to the Cloud recorder.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+      <machineRole role="CloudRecordingNotificationWS" type="webservice" install="installed" description="This webservice receives recording notifications from network recorder.">
+        <resource resource="CloudRecordingNotificationWS" uri="http://%serverLayoutMachineRef:role=CloudRecordingNotificationWS;%/RecordingNotificationWS/NotificationHandler.ashx"/>
+        <prerequisites>
+          <prerequisite Name="IIS8" />
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+        <roleLocations>
+          <location Name="Branch"/>
+        </roleLocations>
+      </machineRole>
+      <machineRole location="Branch" role="CloudDVRRecordingRecycler" type="service" install="installed" description="This Windows service cleans up orphan cloud recordings, which are not used in a branch any more, from cloud recorders.">
+        <prerequisites>
+          <prerequisite Name="Windows2012R2" />
+          <prerequisite Name="NET452" />
+        </prerequisites>
+      </machineRole>
+    </roledescriptions>
+  </components>
+</configuration>

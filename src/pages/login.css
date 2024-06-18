@@ -1,0 +1,88 @@
+.login {
+    text-align: center;
+    display: flex;
+    min-height: 30vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);    
+  }
+  
+  .auth-form-container .login-form {
+    display: center;
+    flex-direction: column;
+    color: #121111;
+    display:table; height:100%; margin: 0 auto;
+
+  }
+  
+  @media screen and (min-width: 600px) {
+    .auth-form-container {
+      padding: 5rem;
+      border: 1px solid rgb(109, 84, 84);
+      border-radius: 10px;
+      margin: 0.5rem;
+      border-width: thick;
+      width: 400px;
+      height: 300px;
+      padding: 50px;
+      position: absolute;
+  top: 40%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+      
+    }
+  }
+  
+  label {
+    text-align: left;
+    padding: 0.25rem 0;
+  }
+  
+
+  
+  button {  
+    width: 10%;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 0;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    border: none;
+    color: #fff;
+    background-color: #4f545c;
+    transition: background-color .17s ease,color .17s ease;
+  }
+
+  input {    
+    width: 130%;
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 2px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    :focus{
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+    }
+     
+  }
+  
+  .link-btn {
+    background: none;
+    color: white;
+    text-decoration: underline;
+  }

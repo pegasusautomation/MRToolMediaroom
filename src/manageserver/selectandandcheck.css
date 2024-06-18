@@ -1,0 +1,47 @@
+/* CSS for custom checkbox */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 4%;
+  }
+  
+  .checkbox-container input {
+    width: 10%;
+    height:15px;
+    padding: 2px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    appearance: auto;
+  }
+  
+  .checkmark {
+    position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border: 1px solid #0d0101;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-container .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #16773e;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  

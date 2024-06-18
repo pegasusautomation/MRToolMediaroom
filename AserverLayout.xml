@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="serverLayout.xsd">
+  <components>
+    <serverLayout version="1.0">
+      <branch branchId="0" domain="MSPBE5" name="MSPBE5-LVBACKEND">
+        <groupdefinitions>
+          <group name="MDSCache1" type="MDSGroup" />
+        </groupdefinitions>
+        <zones>
+          <zone name="MSPBE5-DATA" zoneId="0">
+            <nlbs />
+            <computers>
+              <computer connectionString="MSPBE5BEDB001.MSPBE5.MRSUPP.COM\LiveDB,1433" name="MSPBE5BEDB001\LIVEDB" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="ContentDistributionDB" />
+                  <role name="vodBackendDB" />
+                  <role name="L2VBackendDB" />
+                  <role name="liveBackendDB" />
+                  <role name="ListingsSettingsDB" />
+                  <role name="eventLogDB" />
+                  <role name="SubscriberActivityDB" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MDB001.MSPBE5.MRSUPP.COM" name="MSPBE5MDB001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="MDSFileStore" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MDB001.MSPBE5.MRSUPP.COM\MDB,1433" name="MSPBE5MDB001\MDB" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="CommonDB" />
+                </roles>
+              </computer>
+            </computers>
+          </zone>
+          <zone name="MSPBE5-NTP" zoneId="1">
+            <nlbs />
+            <computers>
+              <computer connectionString="10.109.1.2" name="MSPBE5NTP1" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="ntp" />
+                </roles>
+              </computer>
+              <computer connectionString="10.109.1.50" name="MSPBE5NTP2" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="ntp" />
+                </roles>
+              </computer>
+
+            </computers>
+          </zone>
+          <zone name="MSPBE5-VOD" zoneId="3">
+            <nlbs />
+            <computers>
+              <computer connectionString="MSPBE5VCTRL001.MSPBE5.MRSUPP.COM" name="MSPBE5VCTRL001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="vodCreatorControllerWS" />
+                  <role name="ContentDistributionControllerWS" />
+                  <role name="vodImportPreprocessorService" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5VCRT001.MSPBE5.MRSUPP.COM" name="MSPBE5VCRT001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="vodCreatorStation" />
+                  <role name="vodCreator" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MDIST001.MSPBE5.MRSUPP.COM" name="MSPBE5MDIST001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="ContentDistributionServer" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5VMGMT001.MSPBE5.MRSUPP.COM" name="MSPBE5VMGMT001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="ossContentDistributionWS" />
+                  <role name="ossVodBackendWS" />
+                  <role name="smtVODBackend" />
+                </roles>
+              </computer>
+            </computers>
+          </zone>
+          <zone name="MSPBE5-LIVE" zoneId="2">
+            <nlbs />
+            <computers>
+              <computer connectionString="MSPBE5RSERV001.MSPBE5.MRSUPP.COM" name="MSPBE5RSERV001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="BackendLiveToVodRecServer" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5ASERV003.MSPBE5.MRSUPP.COM" name="MSPBE5ASERV003" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="acquisitionServiceV3" />
+                </roles>
+              </computer>
+ 	      <computer connectionString="FARM01-ACQ-37.MSPBE5.MRSUPP.COM" name="FARM01-ACQ-37" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="acquisitionServiceV3" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5AMGMT001.MSPBE5.MRSUPP.COM" name="MSPBE5AMGMT001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="ossBackendBlackoutWS" />
+                  <role name="LiveBackendManagement" />
+                  <role name="smtBackendLiveToVod" />
+                  <role name="ossLiveBackend" />
+                  <role name="ossBackendLiveToVodWS" />
+                  <role name="LOTTOSS" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5ACTRL001.MSPBE5.MRSUPP.COM" name="MSPBE5ACTRL001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="crashDetectorService" />
+                  <role name="acquisitionControllerWS" />
+                  <role name="BackendLiveToVodControllerWS" />
+                  <role name="ListingsSyncService" />
+                  <role name="LOTTController" />
+                  <role name="ListingsLibrarian" />
+                  <role name="LottKeyGenerator" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5ASERV002.MSPBE5.MRSUPP.COM" name="MSPBE5ASERV002" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="acquisitionServiceV3" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5ASERV004.MSPBE5.MRSUPP.COM" name="MSPBE5ASERV004" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="acquisitionServiceV3" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5ASERV001.MSPBE5.MRSUPP.COM" name="MSPBE5ASERV001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="acquisitionServiceV3" />
+                </roles>
+              </computer>
+            </computers>
+          </zone>
+          <zone name="MSPBE5-MDS" zoneId="4">
+            <nlbs />
+            <computers>
+              <computer connectionString="MSPBE5MDSAF001.MSPBE5.MRSUPP.COM" name="MSPBE5MDSAF001" domain="MSPBE5">
+                <groups>
+                  <membership group="MDSCache1" />
+                </groups>
+                <roles>
+                  <role name="DistributedCache" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MDSAF002.MSPBE5.MRSUPP.COM" name="MSPBE5MDSAF002" domain="MSPBE5">
+                <groups>
+                  <membership group="MDSCache1" />
+                </groups>
+                <roles>
+                  <role name="DistributedCache" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MMGMT001.MSPBE5.MRSUPP.COM" name="MSPBE5MMGMT001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="MDSManagementWS" />
+                  <role name="MDSSubscriberManagementWS" />
+                  <role name="smtContracts" />
+                  <role name="contractManagementService" />
+                  <role name="smtMDSManagement" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MDSING001.MSPBE5.MRSUPP.COM" name="MSPBE5MDSING001" domain="MSPBE5">
+                <groups />
+                <roles>
+                  <role name="DataGeneratorService" />
+                  <role name="sessionKeyAuthority_KeyGenerator" />
+                  <role name="MDSListingsLibrarian" />
+                  <role name="MdsSlabGenerator" />
+                  <role name="sessionKeyAuthorityWS" />
+                  <role name="IngestionService" />
+                  <role name="FragmentGeneratorService" />
+                </roles>
+              </computer>
+              <computer connectionString="MSPBE5MDSFE001.MSPBE5.MRSUPP.COM" name="MSPBE5MDSFE001" domain="MSPBE5">
+                <groups>
+                  <membership group="MDSCache1" />
+                </groups>
+                <roles>
+                  <role name="MDSSubscriberDataWS" />
+                  <role name="MDSTokenGenerator" />
+                  <role name="MDSMediaResourceWS" />
+                  <role name="MDSVodWS" />
+                  <role name="MDSDvrDataWS" />
+                  <role name="LicenseServer" />
+                  <role name="MDSSearchWS" />
+                  <role name="MDSExternalPurchaseWS" />
+                  <role name="MDSListingsWS" />
+                  <role name="MDSMediaCatalog" />
+                  <role name="MDSContractWS" />
+                  <role name="MDSAuthWS" />
+                </roles>
+              </computer>
+            </computers>
+          </zone>
+        </zones>
+      </branch>
+    </serverLayout>
+  </components>
+</configuration>
