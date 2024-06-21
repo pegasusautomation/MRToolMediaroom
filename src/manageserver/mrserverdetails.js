@@ -748,6 +748,9 @@ const Mrserverdetails = ({ userData }) => {
                   </ul>
                 </td>
                 <td>
+                {Array.isArray(item.ServiceStatus) &&
+                item.ServiceStatus.some(role => role.Name !== "No service found")? (
+                  <>
                   <button
                     onClick={() => {
                       setShowConfirmation(true);
@@ -796,6 +799,10 @@ const Mrserverdetails = ({ userData }) => {
                   >
                     {isButtonDisabled ? "Restart Services" : "Restart Services"}
                   </button>
+                  </>
+                ) : (
+                  "No services available"
+                )}
                 </td>
                 <td>
                   <button
