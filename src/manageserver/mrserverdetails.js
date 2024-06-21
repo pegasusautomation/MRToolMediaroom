@@ -515,7 +515,7 @@ const Mrserverdetails = ({ userData }) => {
             marginRight: "190px",
           }}
         >
-          {isButtonDisabled ? "Updating Status" : "Upload Servers"}
+          {isButtonDisabled ? "Updating Servers" : "Update Servers"}
         </button>
         <button
           id="updateServiceStatusBtn"
