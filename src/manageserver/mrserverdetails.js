@@ -419,11 +419,11 @@ const Mrserverdetails = ({ userData }) => {
     );
   };
 
-  const handleSelectAllMachinesChange = () => {
-    const allMachineNames = jsonData.map((data) => data.ComputerName);
-    setSelectAllMachines(!selectAllMachines);
-    setSelectedMachines(selectAllMachines ? [] : allMachineNames);
-  };
+  // const handleSelectAllMachinesChange = () => {
+  //   const allMachineNames = jsonData.map((data) => data.ComputerName);
+  //   setSelectAllMachines(!selectAllMachines);
+  //   setSelectedMachines(selectAllMachines ? [] : allMachineNames);
+  // };
 
   const filteredData = jsonData.filter((item) => {
     const searchValue = item[searchColumn];
@@ -441,7 +441,15 @@ const Mrserverdetails = ({ userData }) => {
       return searchValue === searchTerm;
     }
   });
-
+  const handleSelectAllMachinesChange = () => {
+    if (selectAllMachines) {
+      setSelectedMachines([]);
+    } else {
+      const filteredMachineNames = filteredData.map((item) => item.ComputerName);
+      setSelectedMachines(filteredMachineNames);
+    }
+    setSelectAllMachines(!selectAllMachines);
+  };
   return (
     <div
       style={{
