@@ -13,16 +13,16 @@
 ::egkzugNsPRvcWATEpCI=
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
-::YxY4rhs+aU+JeA==
-::cxY6rQJ7JhzQF1fEqQJQ
-::ZQ05rAF9IBncCkqN+0xwdVs0
-::ZQ05rAF9IAHYFVzEqQJQ
+::YxY4rhs+aU+IeA==
+::cxY6rQJ7JhzQF1fEqQJhZksaHGQ=
+::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbAs=
+::ZQ05rAF9IAHYFVzEqQIdGltnSRaUOXn6K7oS4fz0/eOJpQ0pW+0zGA==
 ::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
 ::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
 ::cRolqwZ3JBvQF1fEqQJQ
-::dhA7uBVwLU+EWDk=
+::dhA7uBVwLU+EWHSB8EsxAxJaSGQ=
 ::YQ03rBFzNR3SWATElA==
-::dhAmsQZ3MwfNWATElA==
+::dhAmsQZ3MwfNWATE100gMQldSwyWfEa/Arwdw+H166bH8B1PAK5/WYPXmoaHJ+gH+QXWcIUoxGxfnKs=
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
@@ -51,15 +51,16 @@ IF ERRORLEVEL 1 (
     echo Node.js is already installed.
 )
 
-:: Unblocking files
-echo Unblocking files in %projectDir%...
-powershell -command "Get-ChildItem -Path %projectDir% -Recurse | Unblock-File"
+:: Unblocking files if necessary
+echo Checking if any files need to be unblocked in %projectDir%...
+powershell -command "Get-ChildItem -Path %projectDir% -Recurse | Where-Object { $_.Attributes -band [System.IO.FileAttributes]::ReparsePoint -or $_.Attributes -band [System.IO.FileAttributes]::Offline -or $_.Attributes -band [System.IO.FileAttributes]::Encrypted -or $_.Attributes -band [System.IO.FileAttributes]::Temporary } | Unblock-File"
+echo Files unblocked if necessary.
 
 :: Install dependencies if node_modules does not exist
 if not exist "%projectDir%node_modules" (
-echo Installing dependencies...
-start "" /b cmd /c "cd /d %projectDir% && npm i"
-timeout /t 50 /nobreak
+    echo Installing dependencies...
+    start "" /b cmd /c "cd /d %projectDir% && npm i"
+    timeout /t 80 /nobreak
     IF %ERRORLEVEL% NEQ 0 (
         echo Failed to install dependencies. Check the log for details.
         echo React app log: %projectDir%react_app.log
@@ -94,8 +95,4 @@ start "" /b cmd /c "node server.js > %projectDir%src\node_server.log 2>&1"
 
 :: Final messages
 echo App Launched...
-echo Check the logs for more information:
-echo React app log: %projectDir%react_app.log
-echo Node.js server log: %projectDir%src\node_server.log
 
-pause
