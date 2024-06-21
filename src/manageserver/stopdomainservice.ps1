@@ -30,25 +30,10 @@ if (-not $Message) {
     exit 1
 }
 
-# Function to get domain-specific username
-function Get-Username {
-    param (
-        [string]$ComputerName
-    )
-    # Determine the domain based on the computer name
-    if ($ComputerName -like "MSPBR5*") {
-        return "MSPBR5\$($env:USERNAME)"
-    } elseif ($ComputerName -like "MSPBE5*") {
-        return "MSPBE5\$($env:USERNAME)"
-    } else {
-        return "$($env:USERDOMAIN)\$($env:USERNAME)"
-    }
-}
-
-$username = Get-Username -ComputerName $ComputerName
+$username = "$($env:USERDOMAIN)\$($env:USERNAME)"
 
 # Log the credentials being used
-Write-Log "Using credentials: $username"
+Write-Output "Using credentials: $username"
 
 $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($username, $password)

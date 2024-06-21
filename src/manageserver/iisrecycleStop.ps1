@@ -78,7 +78,7 @@ $serviceData = @{
     "User" = $username
     "Machine" = $computerName
     "Service" = $servicecmd
-    "Action" = "Stopped"
+    "Action" = "ISS Stopped"
     "ActionHistory" = $Message
 }
 
