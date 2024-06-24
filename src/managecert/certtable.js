@@ -105,14 +105,14 @@ const Certtable = ({ userData }) => {
 
   const noCertificatesMessage = (
     <tr>
-      <td colSpan={Object.keys(sortedDetails[0] || {}).length} style={{ textAlign: "center" }}>
+      <td colSpan={Object.keys(sortedDetails[0] || {}).length} style={{ textAlign: "center", padding:"100px"}}>
         No certificates match the selected expiration filter.
       </td>
     </tr>
   );
 
   return (
-    <div style={{ overflowX: "auto", height: "80vh", width: "83vw", minWidth: "57vw", minHeight: "87vh" }}>
+    <div style={{height: "80vh", width: "83vw", minWidth: "57vw", minHeight: "87vh" }}>
       <h1 style={{ fontSize: "20px", marginLeft: "400px", marginBottom: '20px' }}>CERTIFICATE DETAILS</h1>
       <label style={{ marginRight: "20px" }}>
         <b>Select ComputerName</b>
@@ -162,7 +162,8 @@ const Certtable = ({ userData }) => {
         Cert Report
       </button>
       <br /><br />
-      <table style={{ borderCollapse: "collapse", width: "100%", minHeight: "50%", minWidth: "100%", whiteSpace: "wrap" }}>
+      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "63vh" }}>
+      <table style={{ borderCollapse: "collapse", width: "100%",whiteSpace: "wrap" }}>
         <thead style={{ background: "#908fb0", color: "white" }}>
           <tr>
             {Object.keys(sortedDetails[0] || {}).map((key, index) => (
@@ -208,6 +209,7 @@ const Certtable = ({ userData }) => {
           )}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

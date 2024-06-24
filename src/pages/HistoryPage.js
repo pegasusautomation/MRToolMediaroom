@@ -6,13 +6,13 @@ const HistoryPage = () => {
     <div style={{margin:'20px', display: "flex",
     flexDirection: "column",
     alignItems: "center", // Align items to the center
-    width: "100%",
-    height: "80%",
-    overflow: "auto",}}>
+    width: "95%",
+    height: "80%",}}>
       <caption style={{ fontSize: "30px", marginBottom: "20px" }}>
         USER EVENT LOGS
       </caption>
       <br></br>
+      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "65vh" }}>
       <table style={{ height: "300px", overflowY: "inherit" }}>
         <thead style={{ background: "#908fb0" ,height:'30px'}}>
           <tr>
@@ -37,6 +37,7 @@ const HistoryPage = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };
