@@ -15,11 +15,12 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
   const handleInputChange = () => {
     const div = editableDivRef.current;
     const text = div.innerText;
-    if (!text.includes(selectedOption)) {
-      setInputValue(selectedOption + " " + text.replace(selectedOption, "").trim());
-    } else {
-      setInputValue(text);
+    if (!text.startsWith(selectedOption)) {
+      setInputValue(selectedOption);
+      return;
     }
+    const extraText = text.slice(selectedOption.length).trim();
+    setInputValue(selectedOption + " " + extraText);
   };
 
   const handleSubmit = (event) => {
@@ -32,9 +33,8 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
   useEffect(() => {
     const div = editableDivRef.current;
     if (div) {
-      const regex = new RegExp(`(${selectedOption})`, 'gi');
-      const newText = inputValue.replace(regex, "<span style='font-weight: bold;'>$1</span>");
-      div.innerHTML = newText;
+      const extraText = inputValue.slice(selectedOption.length).trim();
+      div.innerHTML = `<span style='font-weight: bold;'>${selectedOption}</span> ${extraText}`;
       placeCaretAtEnd(div);
     }
   }, [inputValue, selectedOption]);
@@ -62,9 +62,9 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
             onChange={handleDropdownChange}
             style={{ marginBottom: "10px" }}
           >
-        <option value="">Select an option</option>
-            <option value="Hardware maintainence">Hardware maintainence</option>
-            <option value="Chain Management">Chain Management</option>
+            <option value="">Select an option</option>
+            <option value="Hardware maintenance">Hardware maintenance</option>
+            <option value="Change Management">Change Management</option>
             <option value="Break fix action">Break fix action</option>
             <option value="others">others</option>
           </select>
@@ -77,7 +77,7 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
               marginBottom: "10px",
               padding: "8px",
               fontSize: "16px",
-              width: "100%",
+              width: "300px",
               boxSizing: "border-box",
               border: "1px solid #ccc",
               minHeight: "100px",
