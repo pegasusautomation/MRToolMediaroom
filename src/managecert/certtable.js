@@ -23,9 +23,24 @@ const Certtable = ({ userData }) => {
     : certTable;
 
   const currentDate = new Date();
+
+  const parseDate = (dateString) => {
+    const [datePart, timePart] = dateString.split(' ');
+    const [hoursMinutes, ampm] = timePart.split(' ');
+    const [hours, minutes, seconds] = hoursMinutes.split(':');
+    const adjustedHours = ampm === 'PM' && parseInt(hours, 10) !== 12
+      ? parseInt(hours, 10) + 12
+      : ampm === 'AM' && parseInt(hours, 10) === 12
+      ? 0
+      : parseInt(hours, 10);
+    const formattedDate = `${datePart}T${String(adjustedHours).padStart(2, '0')}:${minutes}:${seconds}`;
+    return new Date(formattedDate);
+  };
+
   const filteredExpiration = filteredDetails.filter((item) => {
-    const expirationDate = new Date(item["Valid To"]);
+    const expirationDate = parseDate(item["Valid To"]);
     const daysUntilExpiration = Math.floor((expirationDate - currentDate) / (1000 * 60 * 60 * 24));
+
     if (expirationFilter === "7days" && daysUntilExpiration <= 7 && daysUntilExpiration > 0) {
       return true;
     }
@@ -37,15 +52,6 @@ const Certtable = ({ userData }) => {
     }
     return expirationFilter === "all";
   });
-
-  const parseDate = (dateString) => {
-    const [datePart, timePart] = dateString.split(' ');
-    const [hoursMinutes, ampm] = timePart.split(' ');
-    const [hours, minutes] = hoursMinutes.split(':');
-    const adjustedHours = ampm === 'PM' ? (parseInt(hours, 10) % 12) + 12 : parseInt(hours, 10) % 12;
-    const formattedDate = `${datePart} ${adjustedHours}:${minutes}`;
-    return new Date(formattedDate);
-  };
 
   const sortedDetails = filteredExpiration.slice().sort((a, b) => {
     const dateA = parseDate(a["Valid To"]);
@@ -136,13 +142,14 @@ const Certtable = ({ userData }) => {
         <option value="expired">Already Expired</option>
       </select>
       <br /><br />
-      <div
+      <button
         onClick={downloadAsCSV}
+        disabled={sortedDetails.length === 0}
         style={{
-          cursor: 'pointer',
+          cursor: sortedDetails.length === 0 ? 'not-allowed' : 'pointer',
           display: 'inline-block',
           padding: '8px 16px',
-          backgroundColor: '#4CAF50',
+          backgroundColor: sortedDetails.length === 0 ? 'gray' : '#4CAF50',
           color: 'white',
           borderRadius: '4px',
           textDecoration: 'none',
@@ -152,7 +159,7 @@ const Certtable = ({ userData }) => {
       >
         <FontAwesomeIcon icon={faDownload} style={{ marginRight: '8px' }} />
         Cert Report
-      </div>
+      </button>
       <br /><br />
       <table style={{ borderCollapse: "collapse", width: "100%", minHeight: "50%", minWidth: "100%", whiteSpace: "wrap" }}>
         <thead style={{ background: "#908fb0", color: "white" }}>
