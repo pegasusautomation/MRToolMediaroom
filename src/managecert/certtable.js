@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import certTable from "./certdata.json";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
 const Certtable = ({ userData }) => {
   const [selectedComputer, setSelectedComputer] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
@@ -39,8 +40,9 @@ const Certtable = ({ userData }) => {
 
   const parseDate = (dateString) => {
     const [datePart, timePart] = dateString.split(' ');
-    const [hours, minutes, ampm] = timePart.split(':');
-    const adjustedHours = ampm === 'PM' ? parseInt(hours, 10) + 12 : hours;
+    const [hoursMinutes, ampm] = timePart.split(' ');
+    const [hours, minutes] = hoursMinutes.split(':');
+    const adjustedHours = ampm === 'PM' ? (parseInt(hours, 10) % 12) + 12 : parseInt(hours, 10) % 12;
     const formattedDate = `${datePart} ${adjustedHours}:${minutes}`;
     return new Date(formattedDate);
   };
@@ -53,7 +55,6 @@ const Certtable = ({ userData }) => {
 
   const isExpired = (dateString) => {
     const expirationDate = parseDate(dateString);
-    const currentDate = new Date();
     return expirationDate < currentDate;
   };
 
@@ -70,13 +71,16 @@ const Certtable = ({ userData }) => {
   };
 
   const downloadAsCSV = () => {
+    if (sortedDetails.length === 0) {
+      return;
+    }
+
     const csvContent = "data:text/csv;charset=utf-8," +
       Object.keys(sortedDetails[0]).join(",") + "\n" +
       sortedDetails.map(row => {
         return Object.values(row)
           .map(value => {
-            // If the value contains a comma, surround it with double quotes to preserve the comma in CSV
-            if (value.includes(',')) {
+            if (typeof value === 'string' && value.includes(',')) {
               return `"${value}"`;
             }
             return value;
@@ -84,7 +88,7 @@ const Certtable = ({ userData }) => {
           .join(",");
       })
       .join("\n");
-  
+
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
@@ -95,14 +99,14 @@ const Certtable = ({ userData }) => {
 
   const noCertificatesMessage = (
     <tr>
-      <td colSpan={Object.keys(sortedDetails[0] || {}).length} style={{ textAlign: "center"}}>
+      <td colSpan={Object.keys(sortedDetails[0] || {}).length} style={{ textAlign: "center" }}>
         No certificates match the selected expiration filter.
       </td>
     </tr>
   );
 
   return (
-    <div style={{overflowX: "auto", height: "91vh", width: "83vw", minWidth: "57vw", minHeight: "91vh"}}>
+    <div style={{ overflowX: "auto", height: "91vh", width: "83vw", minWidth: "57vw", minHeight: "91vh" }}>
       <h1 style={{ fontSize: "20px", marginLeft: "400px", marginBottom: '20px' }}>CERTIFICATE DETAILS</h1>
       <label style={{ marginRight: "20px" }}>
         <b>Select ComputerName</b>
@@ -131,26 +135,26 @@ const Certtable = ({ userData }) => {
         <option value="30days">Expires in 30 Days</option>
         <option value="expired">Already Expired</option>
       </select>
-      <br></br><br></br>
+      <br /><br />
       <div
-      onClick={downloadAsCSV}
-      style={{
-        cursor: 'pointer',
-        display: 'inline-block',
-        padding: '8px 16px',
-        backgroundColor: '#4CAF50',
-        color: 'white',
-        borderRadius: '4px',
-        textDecoration: 'none',
-        textAlign: 'center'
-      }}
-      title="Download Cert Details"
-    >
-      <FontAwesomeIcon icon={faDownload} style={{ marginRight: '8px' }} />
-      Cert Report
-    </div>
-      <br></br><br></br>
-      <table style={{ borderCollapse: "collapse", width: "100%", minHeight:"50%", minWidth: "100%", whiteSpace: "wrap" }}>
+        onClick={downloadAsCSV}
+        style={{
+          cursor: 'pointer',
+          display: 'inline-block',
+          padding: '8px 16px',
+          backgroundColor: '#4CAF50',
+          color: 'white',
+          borderRadius: '4px',
+          textDecoration: 'none',
+          textAlign: 'center'
+        }}
+        title="Download Cert Details"
+      >
+        <FontAwesomeIcon icon={faDownload} style={{ marginRight: '8px' }} />
+        Cert Report
+      </div>
+      <br /><br />
+      <table style={{ borderCollapse: "collapse", width: "100%", minHeight: "50%", minWidth: "100%", whiteSpace: "wrap" }}>
         <thead style={{ background: "#908fb0", color: "white" }}>
           <tr>
             {Object.keys(sortedDetails[0] || {}).map((key, index) => (
@@ -164,7 +168,6 @@ const Certtable = ({ userData }) => {
                   <span>{sortOrder === "asc" ? " ▲" : " ▼"}</span>
                 )}
               </th>
-
             ))}
           </tr>
         </thead>
