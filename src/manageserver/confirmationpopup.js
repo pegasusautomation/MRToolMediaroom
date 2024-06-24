@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ConfirmationPopup.css"; // Import CSS file for styling
 
 const ConfirmationPopup = ({ onConfirm, onCancel }) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(""); // State for input value
+  const [selectedOption, setSelectedOption] = useState(""); // State for selected option
+  const editableDivRef = useRef(null);
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+  const handleDropdownChange = (event) => {
+    const option = event.target.value;
+    setSelectedOption(option);
+    setInputValue(option);
+  };
+
+  const handleInputChange = () => {
+    const div = editableDivRef.current;
+    const text = div.innerText;
+    if (!text.includes(selectedOption)) {
+      setInputValue(selectedOption + " " + text.replace(selectedOption, "").trim());
+    } else {
+      setInputValue(text);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -15,28 +29,61 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
     }
   };
 
+  useEffect(() => {
+    const div = editableDivRef.current;
+    if (div) {
+      const regex = new RegExp(`(${selectedOption})`, 'gi');
+      const newText = inputValue.replace(regex, "<span style='font-weight: bold;'>$1</span>");
+      div.innerHTML = newText;
+      placeCaretAtEnd(div);
+    }
+  }, [inputValue, selectedOption]);
+
+  const placeCaretAtEnd = (el) => {
+    el.focus();
+    if (typeof window.getSelection !== "undefined" && typeof document.createRange !== "undefined") {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      range.collapse(false);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="confirmation-popup-overlay">
         <div className="confirmation-popup-content">
           <p>Are you sure you want to proceed?</p>
-          <textarea
-            value={inputValue}
-            onChange={handleInputChange}
-            placeholder="Enter reason to confirm"
-            minLength={15} // Minimum character limit
-            maxLength={200} // Maximum character limit
+          {/* Dropdown for options */}
+          <select
+            value={selectedOption}
+            onChange={handleDropdownChange}
+            style={{ marginBottom: "10px" }}
+          >
+        <option value="">Select an option</option>
+            <option value="Hardware maintainence">Hardware maintainence</option>
+            <option value="Chain Management">Chain Management</option>
+            <option value="Break fix action">Break fix action</option>
+            <option value="others">others</option>
+          </select>
+          {/* Editable div */}
+          <div
+            ref={editableDivRef}
+            contentEditable
+            onInput={handleInputChange}
             style={{
               marginBottom: "10px",
-              padding: "8px", // Adjusted padding
-              fontSize: "16px", // Adjusted font size
-              width: "100%", // Set the width to fill the container
-              minHeight: "100px", // Set a minimum height to prevent it from collapsing
-              resize: "vertical", // Allow vertical resizing
-              boxSizing: "border-box", // Include padding and border in the width calculation
+              padding: "8px",
+              fontSize: "16px",
+              width: "100%",
+              boxSizing: "border-box",
+              border: "1px solid #ccc",
+              minHeight: "100px",
+              whiteSpace: "pre-wrap",
             }}
-            required
-          ></textarea>
+          ></div>
           <div className="button-container">
             <button
               type="submit"
@@ -45,7 +92,7 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
                 marginLeft: "60px",
                 padding: "6px",
                 background: inputValue.trim() === "" ? "gray" : "#594c91",
-                cursor: inputValue.trim() === "" ? "default" : "pointer"
+                cursor: inputValue.trim() === "" ? "default" : "pointer",
               }}
             >
               Confirm
