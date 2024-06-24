@@ -112,7 +112,7 @@ const Certtable = ({ userData }) => {
   );
 
   return (
-    <div style={{ overflowX: "auto", height: "91vh", width: "83vw", minWidth: "57vw", minHeight: "91vh" }}>
+    <div style={{ overflowX: "auto", height: "80vh", width: "83vw", minWidth: "57vw", minHeight: "87vh" }}>
       <h1 style={{ fontSize: "20px", marginLeft: "400px", marginBottom: '20px' }}>CERTIFICATE DETAILS</h1>
       <label style={{ marginRight: "20px" }}>
         <b>Select ComputerName</b>
