@@ -169,3 +169,339 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 
 webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\managecert\certtable.js
+Syntax error: Unterminated JSX contents. (212:10) (212:10)
+[1m[31mERROR[39m[22m in [1m./src/managecert/certtable.js[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\MRToolMediaroom\src\managecert\certtable.js: Unterminated JSX contents. (212:10)
+
+  210 |         </tbody>
+  211 |       </table>
+> 212 |     </div>
+      |           ^
+  213 |   );
+  214 | };
+  215 |
+    at constructor (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:356:19)
+    at FlowParserMixin.raise (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3223:19)
+    at FlowParserMixin.jsxReadToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6600:20)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6942:12)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5374:13)
+    at FlowParserMixin.nextToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2347:10)
+    at FlowParserMixin.next (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2258:10)
+    at FlowParserMixin.eat (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2262:12)
+    at FlowParserMixin.expect (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3585:10)
+    at FlowParserMixin.jsxParseClosingElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6840:10)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6855:37)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6858:32)
+    at FlowParserMixin.jsxParseElement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6915:17)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6927:19)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:39
+    at FlowParserMixin.tryParse (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3592:20)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:18)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12284:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11499:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5799:18)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11137:23)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6932:20)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5755:18)
+    at FlowParserMixin.parseExpressionBase (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10551:23)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12279:16)
+    at FlowParserMixin.parseExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:17)
+    at FlowParserMixin.parseReturnStatement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13003:28)
+    at FlowParserMixin.parseStatementContent (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12621:21)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12588:17)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5088:24)
+    at FlowParserMixin.parseStatementListItem (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12568:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13189:61)
+    at FlowParserMixin.parseBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13182:10)[39m[22m
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\managecert\certtable.js
+  Line 212:10:  Parsing [1m[31merror[39m[22m[1m: Unterminated JSX contents. (212:10)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\managecert\certtable.js
+Syntax error: Unterminated JSX contents. (212:10) (212:10)
+[1m[31mERROR[39m[22m in [1m./src/managecert/certtable.js[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\MRToolMediaroom\src\managecert\certtable.js: Unterminated JSX contents. (212:10)
+
+  210 |         </tbody>
+  211 |       </table>
+> 212 |     </div>
+      |           ^
+  213 |   );
+  214 | };
+  215 |
+    at constructor (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:356:19)
+    at FlowParserMixin.raise (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3223:19)
+    at FlowParserMixin.jsxReadToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6600:20)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6942:12)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5374:13)
+    at FlowParserMixin.nextToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2347:10)
+    at FlowParserMixin.next (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2258:10)
+    at FlowParserMixin.eat (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2262:12)
+    at FlowParserMixin.expect (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3585:10)
+    at FlowParserMixin.jsxParseClosingElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6840:10)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6855:37)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6858:32)
+    at FlowParserMixin.jsxParseElement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6915:17)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6927:19)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:39
+    at FlowParserMixin.tryParse (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3592:20)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:18)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12284:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11499:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5799:18)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11137:23)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6932:20)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5755:18)
+    at FlowParserMixin.parseExpressionBase (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10551:23)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12279:16)
+    at FlowParserMixin.parseExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:17)
+    at FlowParserMixin.parseReturnStatement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13003:28)
+    at FlowParserMixin.parseStatementContent (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12621:21)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12588:17)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5088:24)
+    at FlowParserMixin.parseStatementListItem (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12568:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13189:61)
+    at FlowParserMixin.parseBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13182:10)[39m[22m
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\managecert\certtable.js
+  Line 212:10:  Parsing [1m[31merror[39m[22m[1m: Unterminated JSX contents. (212:10)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\managecert\certtable.js
+Syntax error: Unterminated JSX contents. (213:10) (213:10)
+[1m[31mERROR[39m[22m in [1m./src/managecert/certtable.js[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\MRToolMediaroom\src\managecert\certtable.js: Unterminated JSX contents. (213:10)
+
+  211 |         </tbody>
+  212 |       </table>
+> 213 |     </div>
+      |           ^
+  214 |   );
+  215 | };
+  216 |
+    at constructor (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:356:19)
+    at FlowParserMixin.raise (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3223:19)
+    at FlowParserMixin.jsxReadToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6600:20)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6942:12)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5374:13)
+    at FlowParserMixin.nextToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2347:10)
+    at FlowParserMixin.next (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2258:10)
+    at FlowParserMixin.eat (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2262:12)
+    at FlowParserMixin.expect (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3585:10)
+    at FlowParserMixin.jsxParseClosingElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6840:10)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6855:37)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6858:32)
+    at FlowParserMixin.jsxParseElement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6915:17)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6927:19)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:39
+    at FlowParserMixin.tryParse (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3592:20)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:18)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12284:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11499:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5799:18)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11137:23)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6932:20)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5755:18)
+    at FlowParserMixin.parseExpressionBase (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10551:23)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12279:16)
+    at FlowParserMixin.parseExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:17)
+    at FlowParserMixin.parseReturnStatement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13003:28)
+    at FlowParserMixin.parseStatementContent (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12621:21)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12588:17)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5088:24)
+    at FlowParserMixin.parseStatementListItem (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12568:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13189:61)
+    at FlowParserMixin.parseBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13182:10)[39m[22m
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\managecert\certtable.js
+  Line 213:10:  Parsing [1m[31merror[39m[22m[1m: Unterminated JSX contents. (213:10)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m
+Compiling...
+Failed to compile.
+
+[eslint] 
+src\managecert\certtable.js
+Syntax error: Unterminated JSX contents. (213:10) (213:10)
+[1m[31mERROR[39m[22m in [1m./src/managecert/certtable.js[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\MRToolMediaroom\src\managecert\certtable.js: Unterminated JSX contents. (213:10)
+
+  211 |         </tbody>
+  212 |       </table>
+> 213 |     </div>
+      |           ^
+  214 |   );
+  215 | };
+  216 |
+    at constructor (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:356:19)
+    at FlowParserMixin.raise (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3223:19)
+    at FlowParserMixin.jsxReadToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6600:20)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6942:12)
+    at FlowParserMixin.getTokenFromCode (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5374:13)
+    at FlowParserMixin.nextToken (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2347:10)
+    at FlowParserMixin.next (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2258:10)
+    at FlowParserMixin.eat (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:2262:12)
+    at FlowParserMixin.expect (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3585:10)
+    at FlowParserMixin.jsxParseClosingElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6840:10)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6855:37)
+    at FlowParserMixin.jsxParseElementAt (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6858:32)
+    at FlowParserMixin.jsxParseElement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6915:17)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6927:19)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:39
+    at FlowParserMixin.tryParse (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:3592:20)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5700:18)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12284:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10567:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11499:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5799:18)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:11137:23)
+    at FlowParserMixin.parseExprAtom (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:6932:20)
+    at FlowParserMixin.parseExprSubscripts (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10857:23)
+    at FlowParserMixin.parseUpdate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10840:21)
+    at FlowParserMixin.parseMaybeUnary (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10816:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10654:61)
+    at FlowParserMixin.parseExprOps (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10659:23)
+    at FlowParserMixin.parseMaybeConditional (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10636:23)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10597:21)
+    at FlowParserMixin.parseMaybeAssign (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5755:18)
+    at FlowParserMixin.parseExpressionBase (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10551:23)
+    at C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:39
+    at FlowParserMixin.allowInAnd (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12279:16)
+    at FlowParserMixin.parseExpression (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:10547:17)
+    at FlowParserMixin.parseReturnStatement (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13003:28)
+    at FlowParserMixin.parseStatementContent (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12621:21)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12588:17)
+    at FlowParserMixin.parseStatementLike (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:5088:24)
+    at FlowParserMixin.parseStatementListItem (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:12568:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13189:61)
+    at FlowParserMixin.parseBlockBody (C:\MRToolMediaroom\node_modules\@babel\parser\lib\index.js:13182:10)[39m[22m
+
+[1m[31mERROR[39m[22m in [1m[eslint] 
+src\managecert\certtable.js
+  Line 213:10:  Parsing [1m[31merror[39m[22m[1m: Unterminated JSX contents. (213:10)
+
+[39m[22m
+
+webpack compiled with [1m[31m2 errors[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m

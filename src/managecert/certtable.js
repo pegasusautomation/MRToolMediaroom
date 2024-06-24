@@ -153,7 +153,8 @@ const Certtable = ({ userData }) => {
           color: 'white',
           borderRadius: '4px',
           textDecoration: 'none',
-          textAlign: 'center'
+          textAlign: 'left',
+          width: '13%'
         }}
         title="Download Cert Details"
       >
