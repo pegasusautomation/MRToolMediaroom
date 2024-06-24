@@ -6,7 +6,7 @@ const HistoryPage = () => {
     <div style={{margin:'20px', display: "flex",
     flexDirection: "column",
     alignItems: "center", // Align items to the center
-    width: "100%",
+    width: "95%",
     height: "80%",
     overflow: "auto",}}>
       <caption style={{ fontSize: "30px", marginBottom: "20px" }}>
