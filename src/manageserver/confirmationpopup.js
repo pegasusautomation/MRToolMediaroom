@@ -60,13 +60,13 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
           <select
             value={selectedOption}
             onChange={handleDropdownChange}
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: "10px" ,height:"30px"}}
           >
             <option value="">Select an option</option>
             <option value="Hardware maintenance">Hardware maintenance</option>
             <option value="Change Management">Change Management</option>
             <option value="Break fix action">Break fix action</option>
-            <option value="others">others</option>
+            <option value="">others</option>
           </select>
           {/* Editable div */}
           <div
@@ -81,6 +81,8 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
               boxSizing: "border-box",
               border: "1px solid #ccc",
               minHeight: "100px",
+              maxHeight: "100px", // Set a max height
+              overflowY: "auto", // Enable vertical scrollbar
               whiteSpace: "pre-wrap",
             }}
           ></div>
