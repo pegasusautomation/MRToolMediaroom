@@ -129,7 +129,7 @@ const Certtable = ({ userData }) => {
         ))}
       </select>
       <label style={{ marginRight: "20px", marginLeft: "20px" }}>
-        <b>Expiration Filter:</b>
+        <b>Expiration Filter</b>
       </label>
       <select
         value={expirationFilter}

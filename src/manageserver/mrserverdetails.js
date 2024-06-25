@@ -591,10 +591,12 @@ const Mrserverdetails = ({ userData }) => {
       </div>
       <br />
       {filteredData.length > 0 && (
-        <table style={{ width: "100%", marginBottom: "100px" }}>
+        <div style={{ overflow: "auto", maxHeight: "500px",position:"relative"}}>
+        <table style={{ width: "94%", marginBottom: "100px" }}>
           <thead style={{ background: "#908fb0" }}>
             <tr>
-              <th>
+              <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
+                      backgroundColor: "#908fb0",}}>
                 <label className="checkbox-container">
                   {" "}
                   <input
@@ -614,10 +616,14 @@ const Mrserverdetails = ({ userData }) => {
                   Computer Name
                 </label>
               </th>
-              <th>Computer Status</th>
-              <th>Service Status</th>
-              <th>Actions</th>
-              <th>IIS Service Recycle</th>
+              <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
+                      backgroundColor: "#908fb0",}}>Computer Status</th>
+              <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
+                      backgroundColor: "#908fb0",}}>Service Status</th>
+              <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
+                      backgroundColor: "#908fb0",}}>Actions</th>
+              <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
+                      backgroundColor: "#908fb0",}}>IIS Service Recycle</th>
             </tr>
           </thead>
           <tbody>
@@ -630,7 +636,7 @@ const Mrserverdetails = ({ userData }) => {
                     onChange={() => handleSelectMachine(item.ComputerName)}
                   />
                 </td> */}
-                <td>
+                <td style={{width:"30%"}}>
                   <label className="checkbox-container">
                     {" "}
                     <input
@@ -866,6 +872,7 @@ const Mrserverdetails = ({ userData }) => {
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   );
