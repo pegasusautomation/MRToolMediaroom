@@ -4,31 +4,31 @@ import styled from "styled-components";
 import { btnReset, v } from "../../styles/variables";
 
 export const SSidebar = styled.div`
-    width: ${({ isOpen }) => (!isOpen ? `auto` : v.sidebarWidth)};
+    width: ${() => (v.sidebarWidth)};
     background: ${({ theme }) => theme.bg};
     padding: ${v.lgSpacing};
 
     position: relative;
 `;
 
-export const SSidebarButton = styled.button`
-    ${btnReset};
-    position: absolute;
-    top: ${v.xxlSpacing};
-    right: ${({ isOpen }) => (isOpen ? `-10px` : `-10px`)};
-    width: 0px;
-    height: 15px;
-    border-radius: 20%;
-    background: ${({ theme }) => theme.bg};
-    box-shadow: 0 0 4px ${({ theme }) => theme.bg}, 0 0 7px ${({ theme }) => theme.primary};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    zoom:0.8;
+// export const SSidebarButton = styled.button`
+//     // ${btnReset};
+//     // position: absolute;
+//     top: ${v.xxlSpacing};
+//     right: ${({ isOpen }) => (!isOpen ===`-10px`)};
+//     // width: 0px;
+//     // height: 15px;
+//     // border-radius: 20%;
+//     // background: ${({ theme }) => theme.bg};
+//     // box-shadow: 0 0 4px ${({ theme }) => theme.bg}, 0 0 7px ${({ theme }) => theme.primary};
+//     // display: flex;
+//     // align-items: center;
+//     // justify-content: center;
+//     // cursor: pointer;
+//     // zoom:0.8;
 
-    transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
-`;
+//     // transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
+// `;
 
 export const SLogo = styled.div`
     width: 52px;
@@ -82,7 +82,7 @@ export const SLinkContainer = styled.div`
     background: ${({ theme, isActive }) => (!isActive ? `transparent` : theme.bg3)};
     border-radius: ${v.borderRadius};
     margin: 4px 0;
-
+    width : 110px;
     :hover {
         box-shadow: inset 0 0 0 1px ${({ theme }) => theme.bg3};
     }

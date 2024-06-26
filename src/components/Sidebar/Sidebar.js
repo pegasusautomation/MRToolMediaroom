@@ -9,7 +9,7 @@ import {
     SLinkNotification,
     SLogo,
     SSidebar,
-    SSidebarButton,
+    // SSidebarButton,
     STheme,
     SThemeLabel,
     SThemeToggler,
@@ -29,17 +29,17 @@ import { useLocation } from "react-router-dom";
 
 const Sidebar = ({userData}) => {
     const { setTheme, theme } = useContext(ThemeContext);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    // const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = useLocation();
 
  
     return (
       
-        <SSidebar isOpen={sidebarOpen}>
+        <SSidebar>
             <>
-                <SSidebarButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
+                {/* <SSidebarButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
                     <AiOutlineLeft />
-                </SSidebarButton>
+                </SSidebarButton> */}
             </>
             <SLogo>
                 <h1><br></br>MR</h1>
@@ -47,9 +47,9 @@ const Sidebar = ({userData}) => {
             <SDivider />
             {linksArray.map(({ icon, label, notification, to }) => (
                 <SLinkContainer key={label} isActive={pathname === to}>
-                    <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
+                    <SLink to={to} >
                         <SLinkIcon>{icon}</SLinkIcon>
-                        {sidebarOpen && (
+                      
                             <>
                                 <SLinkLabel>{label}</SLinkLabel>
                                 {/* if notifications are at 0 or null, do not display */}
@@ -57,7 +57,7 @@ const Sidebar = ({userData}) => {
                                     <SLinkNotification>{notification}</SLinkNotification>
                                 )}
                             </>
-                        )}
+                        
                     </SLink>
                 </SLinkContainer>
             ))}
@@ -72,7 +72,7 @@ const Sidebar = ({userData}) => {
             ))} */}
             {/* <SDivider /> */}
             <STheme>
-                {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
+                
                 <SThemeToggler
                     isActive={theme === "dark"}
                     onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}
