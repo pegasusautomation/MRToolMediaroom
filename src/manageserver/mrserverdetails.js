@@ -461,7 +461,7 @@ const Mrserverdetails = ({ userData }) => {
         overflow: "auto",
       }}
     >
-      <caption style={{ fontSize: "30px", marginBottom: "20px" }}>
+      <caption style={{ fontSize: "25px", marginBottom: "20px" }}>
         SERVERS
       </caption>
       <div
@@ -508,8 +508,8 @@ const Mrserverdetails = ({ userData }) => {
             color: isButtonDisabled ? "orange" : "#fff",
             cursor: isButtonDisabled ? "not-allowed" : "pointer",
             border: "none",
-            width: "140px",
-            height: "50px",
+            width: "135px",
+            height: "40px",
             borderRadius: "10px",
             fontSize: "14px",
             marginRight: "190px",

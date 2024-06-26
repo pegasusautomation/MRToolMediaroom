@@ -6,9 +6,9 @@ const HistoryPage = () => {
     <div style={{margin:'20px', display: "flex",
     flexDirection: "column",
     alignItems: "center", // Align items to the center
-    width: "95%",
-    height: "80%",}}>
-      <caption style={{ fontSize: "30px", marginBottom: "2px"}}>
+    width: "98%",
+    height: "100%",}}>
+      <caption style={{ fontSize: "25px", marginBottom: "2px"}}>
         USER EVENT LOGS
       </caption>
       <br></br>
