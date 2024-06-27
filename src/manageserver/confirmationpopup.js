@@ -53,7 +53,7 @@ const ConfirmationPopup = ({ onConfirm, onCancel }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="confirmation-popup-overlay">
+      <div className="confirmation-popup-overlay" style={{zIndex:"1"}}>
         <div className="confirmation-popup-content">
           <p>Are you sure you want to proceed?</p>
           {/* Dropdown for options */}
