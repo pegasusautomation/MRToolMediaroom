@@ -65,7 +65,7 @@ const HistoryPage = () => {
             {sortedData.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <span style={{ color: 'black' }}>{formatDate(item.Timelog)}</span>{' '}
+                  <span >{formatDate(item.Timelog)}</span>{' '}
                   <span style={{ color: 'orange' }}>{formatTime(item.Timelog)}</span>
                 </td>
                 <td>{item.User}</td>
