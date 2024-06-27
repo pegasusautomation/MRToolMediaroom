@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-// import { ThemeProvider } from 'styled-components';
+import React, { useContext } from "react";
 import {
     SDivider,
     SLink,
@@ -9,75 +8,52 @@ import {
     SLinkNotification,
     SLogo,
     SSidebar,
-    // SSidebarButton,
     STheme,
     SThemeLabel,
     SThemeToggler,
     SToggleThumb,
 } from "./styles";
-
 import {
     AiFillSafetyCertificate,
     AiOutlineHome,
-    AiOutlineLeft,
     AiOutlineProfile,
 } from "react-icons/ai";
 import { MdDesignServices, MdHistoryEdu } from "react-icons/md";
-
-import { ThemeContext } from 'styled-components'
 import { useLocation } from "react-router-dom";
+import { ThemeContext } from "../../App";  // Make sure the path is correct
 
-const Sidebar = ({userData}) => {
-    const { setTheme, theme } = useContext(ThemeContext);
-    // const [sidebarOpen, setSidebarOpen] = useState(false);
+const Sidebar = ({ userData }) => {
     const { pathname } = useLocation();
+    const { theme, setTheme } = useContext(ThemeContext);
 
- 
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    };
+
     return (
-      
         <SSidebar>
-            <>
-                {/* <SSidebarButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
-                    <AiOutlineLeft />
-                </SSidebarButton> */}
-            </>
             <SLogo>
                 <h1><br></br>MR</h1>
             </SLogo>
             <SDivider />
             {linksArray.map(({ icon, label, notification, to }) => (
                 <SLinkContainer key={label} isActive={pathname === to}>
-                    <SLink to={to} >
+                    <SLink to={to}>
                         <SLinkIcon>{icon}</SLinkIcon>
-                      
-                            <>
-                                <SLinkLabel>{label}</SLinkLabel>
-                                {/* if notifications are at 0 or null, do not display */}
-                                {!!notification && (
-                                    <SLinkNotification>{notification}</SLinkNotification>
-                                )}
-                            </>
-                        
+                        <>
+                            <SLinkLabel>{label}</SLinkLabel>
+                            {!!notification && (
+                                <SLinkNotification>{notification}</SLinkNotification>
+                            )}
+                        </>
                     </SLink>
                 </SLinkContainer>
             ))}
             <SDivider />
-            {/* {secondaryLinksArray.map(({ icon, label }) => (
-                <SLinkContainer key={label}>
-                    <SLink to="/loginhistory" style={!sidebarOpen ? { width: `fit-content` } : {}}>
-                        <SLinkIcon>{icon}</SLinkIcon>
-                        {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
-                    </SLink>
-                </SLinkContainer>
-            ))} */}
-            {/* <SDivider /> */}
             <STheme>
-                
-                <SThemeToggler
-                    isActive={theme === "dark"}
-                    onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}
-                >
-                    <SToggleThumb style={theme === "dark" ? { right: "1px" } : {}} />
+                <SThemeLabel>Dark Mode</SThemeLabel>
+                <SThemeToggler onClick={toggleTheme} isActive={theme === "dark"}>
+                    <SToggleThumb />
                 </SThemeToggler>
             </STheme>
         </SSidebar>
@@ -85,13 +61,11 @@ const Sidebar = ({userData}) => {
 };
 
 const linksArray = [
-  {
-    // {userData && (
-            label: "Profile",
-            icon: <AiOutlineProfile />,
-            to: "/Profile",
-    // )}
-        },
+    {
+        label: "Profile",
+        icon: <AiOutlineProfile />,
+        to: "/Profile",
+    },
     {
         label: "Home",
         icon: <AiOutlineHome />,
@@ -109,18 +83,9 @@ const linksArray = [
     },
     {
         label: "History",
-        icon: < MdHistoryEdu/>,
+        icon: <MdHistoryEdu />,
         to: "/history",
     },
 ];
 
-// const secondaryLinksArray = [
-//     {
-//         label: "Login History",
-//         icon: <MdHistory />,
-//         to:"/loginhistory"
-//     },
-// ];
-
 export default Sidebar;
-

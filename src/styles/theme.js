@@ -7,10 +7,10 @@ export const lightTheme = {
     primary: "rgb(52, 131, 235)",
 };
 export const darkTheme = {
-    bg: "rgb(15,15,15)",
+    bg: "rgba(69, 71, 73, 210)",
     bgAlpha: "rgba(0,0,0,.3)",
-    bg2: "rgb(30,30,30)",
-    bg3: "rgb(50,50,50)",
+    bg2: "rgba(69, 71, 73, 210)",
+    bg3: "rgba(69, 71, 73, 210)",
     text: "rgb(210,210,210)",
     primary: "rgb(52, 131, 235)",
 };

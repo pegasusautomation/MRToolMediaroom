@@ -4,7 +4,7 @@ import Layout from "./components/Layout/Layout";
 import { GlobalStyle } from "./styles/globalStyles";
 import { darkTheme, lightTheme } from "./styles/theme";
 import React, { useState } from "react";
-import { BrowserRouter as Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";  // Note: Changed BrowserRouter import
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import Certtable from "./managecert/certtable.js";
@@ -17,7 +17,9 @@ import TopbarPage from "./pages/TopbarPage.js";
 import AuthService from "./AuthService.js";
 import Mrserverdetails from "./manageserver/mrserverdetails.js";
 import HistoryPage from "./pages/HistoryPage.js";
+
 export const ThemeContext = React.createContext(null);
+
 const App = () => {
   const [theme, setTheme] = useState("light");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,13 +71,7 @@ const App = () => {
       console.error("Login failed:", error.message);
     }
   };
-  // useEffect(() => {
-  //   // Check if authentication token is present in localStorage
-  //   const authToken = localStorage.getItem('authToken');
-  //   setIsLoggedIn(!!authToken);
-  // }, []);
 
-  // const history = useHistory();
   return (
     <ThemeContext.Provider value={{ setTheme, theme }}>
       <ThemeProvider theme={themeStyle}>
@@ -83,50 +79,46 @@ const App = () => {
         <Helmet>
           <title>MediaRoom - Servers</title>
         </Helmet>
-        {/* <Router> */}
-
-        <div className="app">
-          {!isLoggedIn ? (
-            <LoginPage onLogin={handleLogin} />
-          ) : (
-            <>
-              <TopbarPage userData={userData} />
-              <Layout userData={userData}>
-                {/* <Sidebar userRole={userRole} userData={userData}/> */}
-                <div className="content">
-                  <Switch>
-                    {/* <Route path="/home" component={HomePage} />  */}
-                    <Route exact path="/home">
-                      <HomePage />
-                    </Route>
-                    {/* <Route path="/login" component={LoginPage} />  */}
-                    <Route exact path="/houstonservers">
-                      <Mrserverdetails userData={userData} />
-                    </Route>
-                    <Route exact path="/certificates">
-                      <Certtable userData={userData} />
-                    </Route>
-                    <Route exact path="/history">
-                      <HistoryPage userData={userData} />
-                    </Route>
-                       <Route path="/profile">
-                      {userData.role === "user" && (
-                        <UserProfile userData={userData} />
-                      )}
-                      {userData.role === "manager" && (
-                        <ManagerProfile userData={userData} />
-                      )}
-                      {userData.role === "admin" && (
-                        <AdminProfile userData={userData} />
-                      )}
-                    </Route>
-                  </Switch>
-                </div>
-              </Layout>
-            </>
-          )}
-        </div>
-        {/* </Router> */}
+        <Router>
+          <div className="app">
+            {!isLoggedIn ? (
+              <LoginPage onLogin={handleLogin} />
+            ) : (
+              <>
+                <TopbarPage userData={userData} />
+                <Layout userData={userData}>
+                  <div className="content">
+                    <Switch>
+                      <Route exact path="/home">
+                        <HomePage />
+                      </Route>
+                      <Route exact path="/houstonservers">
+                        <Mrserverdetails userData={userData} />
+                      </Route>
+                      <Route exact path="/certificates">
+                        <Certtable userData={userData} />
+                      </Route>
+                      <Route exact path="/history">
+                        <HistoryPage userData={userData} />
+                      </Route>
+                      <Route path="/profile">
+                        {userData.role === "user" && (
+                          <UserProfile userData={userData} />
+                        )}
+                        {userData.role === "manager" && (
+                          <ManagerProfile userData={userData} />
+                        )}
+                        {userData.role === "admin" && (
+                          <AdminProfile userData={userData} />
+                        )}
+                      </Route>
+                    </Switch>
+                  </div>
+                </Layout>
+              </>
+            )}
+          </div>
+        </Router>
       </ThemeProvider>
     </ThemeContext.Provider>
   );
