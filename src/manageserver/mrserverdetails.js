@@ -445,7 +445,12 @@ const Mrserverdetails = ({ userData }) => {
     if (selectAllMachines) {
       setSelectedMachines([]);
     } else {
-      const filteredMachineNames = filteredData.map((item) => item.ComputerName);
+      const filteredMachineNames = filteredData
+        .filter(item =>
+          Array.isArray(item.ServiceStatus) &&
+          item.ServiceStatus.some(role => role.Name !== "No service found")
+        )
+        .map(item => item.ComputerName);
       setSelectedMachines(filteredMachineNames);
     }
     setSelectAllMachines(!selectAllMachines);
@@ -636,7 +641,7 @@ const Mrserverdetails = ({ userData }) => {
                     onChange={() => handleSelectMachine(item.ComputerName)}
                   />
                 </td> */}
-                <td style={{width:"30%"}}>
+              <td style={{width:"30%"}}>
                   <label className="checkbox-container">
                     {" "}
                     <input
@@ -644,7 +649,7 @@ const Mrserverdetails = ({ userData }) => {
                         width: "10%",
                         height: "15px",
                         padding: "2px",
-                        cursor: "pointer",
+                        cursor: Array.isArray(item.ServiceStatus) && item.ServiceStatus.every((role) => role.Name === "No service found") ? "default" : "pointer",
                         border: "1px solid #ccc",
                         backgroundColor: "#fff",
                         marginRight: "4%",
@@ -652,10 +657,16 @@ const Mrserverdetails = ({ userData }) => {
                       type="checkbox"
                       checked={selectedMachines.includes(item.ComputerName)}
                       onChange={() => handleSelectMachine(item.ComputerName)}
-                    />
-                    {item.ComputerName}
-                  </label>
-                </td>
+                     disabled={
+                          !Array.isArray(item.ServiceStatus) ||
+                          item.ServiceStatus.every(
+                            (role) => role.Name === "No service found"
+                          )
+                        } // Disable checkbox if no services found
+                      />
+                      {item.ComputerName}
+                    </label>
+                  </td>
                 <td>{item.ComputerStatus}</td>
                 <td>
                   {showConfirmation && (
