@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
     SDivider,
     SLink,
@@ -8,37 +8,34 @@ import {
     SLinkNotification,
     SLogo,
     SSidebar,
-    STheme,
-    SThemeLabel,
-    SThemeToggler,
-    SToggleThumb,
 } from "./styles";
+
 import {
     AiFillSafetyCertificate,
     AiOutlineHome,
     AiOutlineProfile,
 } from "react-icons/ai";
 import { MdDesignServices, MdHistoryEdu } from "react-icons/md";
+
 import { useLocation } from "react-router-dom";
-import { ThemeContext } from "../../App";  // Make sure the path is correct
 
-const Sidebar = ({ userData }) => {
+const Sidebar = ({userData}) => {
     const { pathname } = useLocation();
-    const { theme, setTheme } = useContext(ThemeContext);
-
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    };
 
     return (
         <SSidebar>
+            <>
+                {/* <SSidebarButton isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
+                    <AiOutlineLeft />
+                </SSidebarButton> */}
+            </>
             <SLogo>
                 <h1><br></br>MR</h1>
             </SLogo>
             <SDivider />
             {linksArray.map(({ icon, label, notification, to }) => (
                 <SLinkContainer key={label} isActive={pathname === to}>
-                    <SLink to={to}>
+                    <SLink to={to} >
                         <SLinkIcon>{icon}</SLinkIcon>
                         <>
                             <SLinkLabel>{label}</SLinkLabel>
@@ -50,12 +47,6 @@ const Sidebar = ({ userData }) => {
                 </SLinkContainer>
             ))}
             <SDivider />
-            <STheme>
-                <SThemeLabel>Dark Mode</SThemeLabel>
-                <SThemeToggler onClick={toggleTheme} isActive={theme === "dark"}>
-                    <SToggleThumb />
-                </SThemeToggler>
-            </STheme>
         </SSidebar>
     );
 };
