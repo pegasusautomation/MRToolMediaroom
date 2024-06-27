@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState,useEffect } from 'react';
 import jsonData from './UserLogonevents.json';
 
 const HistoryPage = () => {
+  const [sortOrder, setSortOrder] = useState('desc'); 
+  const [sortedData, setSortedData] = useState([]);
+
+  useEffect(() => {
+    const sortData = () => {
+      const sorted = [...jsonData].sort((a, b) => {
+        if (!a.Timelog) return 1;
+        if (!b.Timelog) return -1;
+
+        const dateA = new Date(a.Timelog);
+        const dateB = new Date(b.Timelog);
+
+        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+      });
+
+      setSortedData(sorted);
+    };
+
+    sortData();
+  }, [sortOrder]);
+
+  const toggleSortOrder = () => {
+    const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+    setSortOrder(newSortOrder);
+  };
     return (
     <div style={{margin:'20px', display: "flex",
     flexDirection: "column",
@@ -17,7 +42,10 @@ const HistoryPage = () => {
         <thead style={{ background: "#908fb0" ,height:'30px'}}>
           <tr>
             <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
-                      backgroundColor: "#908fb0",}}>Event Time</th>
+                      backgroundColor: "#908fb0",}}>Event Time{' '}
+                      <span style={{ cursor: 'pointer' }} onClick={toggleSortOrder}>
+                        {sortOrder === 'asc' ? '▲' : '▼'}
+                      </span></th>
             <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
                       backgroundColor: "#908fb0",}}>User</th>
             <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
@@ -31,11 +59,11 @@ const HistoryPage = () => {
           </tr>
         </thead>
         <tbody>
-          {jsonData.map((item, index) => (
+          {sortedData.map((item, index) => (
             <tr key={index}>
-              <td>{item.Timelog}</td>
+              <td style={{width:"200px"}}>{item.Timelog}</td>
               <td>{item.User}</td>
-              <td>{item.Machine}</td>
+              <td style={{maxWidth:"200px"}}>{item.Machine}</td>
               <td>{item.Service}</td>
               <td>{item.Action}</td>
               <td>{item.ActionHistory}</td>
