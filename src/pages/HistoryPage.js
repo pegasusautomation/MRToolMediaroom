@@ -79,7 +79,7 @@ const HistoryPage = () => {
         </table>
       </div>
       <footer style={{marginTop:"5px",textAlign:"center"}}>
-        <small>&copy; Copyright 2024, MRToolMediaroom</small>
+        <small>&copy; Copyright 2024, MediaKind</small>
       </footer>
     </div>
     
