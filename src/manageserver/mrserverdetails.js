@@ -518,7 +518,7 @@ const Mrserverdetails = ({ userData }) => {
             width: "120px",
             height: "30px",
             borderRadius: "10px",
-            fontSize: "12px",
+            fontSize: "10px",
             right:"0px"
           }}
         >
@@ -538,11 +538,11 @@ const Mrserverdetails = ({ userData }) => {
             border: "none",
             width: "110px",
             borderRadius: "5px",
-            fontSize: "12px",
+            fontSize: "10px",
             marginRight: "10px",
             marginLeft: "60px",
             position:"relative",
-            left:"320px",
+            left:"290px",
           }}
         >
           {isButtonDisabled ? "Stop Selected" : "Stop Selected"}
@@ -562,11 +562,11 @@ const Mrserverdetails = ({ userData }) => {
             border: "none",
             width: "110px",
             borderRadius: "5px",
-            fontSize: "12px",
+            fontSize: "10px",
             marginRight: "10px",
             marginLeft: "10px",
             position:"relative",
-            left:"320px",
+            left:"290px",
           }}
         >
           {isButtonDisabled ? "Start Selected" : "Start Selected"}
@@ -585,11 +585,11 @@ const Mrserverdetails = ({ userData }) => {
             border: "none",
             width: "110px",
             borderRadius: "5px",
-            fontSize: "12px",
+            fontSize: "10px",
             marginRight: "10px",
             marginLeft: "10px",
             position:"relative",
-            left:"320px"
+            left:"290px"
           }}
         >
           {isButtonDisabled ? "Restart Selected" : "Restart Selected"}
@@ -597,10 +597,10 @@ const Mrserverdetails = ({ userData }) => {
         <span
           style={{
             position:"relative",
-            left:"330px",
+            left:"290px",
             marginRight: "10px",
             marginLeft:"10px",
-            fontSize:"13px"
+            fontSize:"12px"
           }}
         >
           <b>{getSelectedMachineCount()}</b> Servers Selected
@@ -621,8 +621,8 @@ const Mrserverdetails = ({ userData }) => {
                     checked={selectAllMachines}
                     onChange={handleSelectAllMachinesChange}
                     style={{
-                      width: "9%",
-                      height: "17px",
+                      width: "8%",
+                      height: "12px",
                       padding: "2px",
                       cursor: "pointer",
                       border: "1px solid #ccc",
@@ -653,13 +653,13 @@ const Mrserverdetails = ({ userData }) => {
                     onChange={() => handleSelectMachine(item.ComputerName)}
                   />
                 </td> */}
-              <td style={{width:"28%",fontSize:"9px"}}>
+              <td style={{minWidth:"10%",width:"20%",fontSize:"9px"}}>
                   <label className="checkbox-container">
                     {" "}
                     <input
                       style={{
-                        width: "10%",
-                        height: "15px",
+                        width: "8%",
+                        height: "12px",
                         padding: "2px",
                         cursor: Array.isArray(item.ServiceStatus) && item.ServiceStatus.every((role) => role.Name === "No service found") ? "default" : "pointer",
                         border: "1px solid #ccc",
@@ -679,8 +679,8 @@ const Mrserverdetails = ({ userData }) => {
                       {item.ComputerName}
                     </label>
                   </td>
-                <td style={{fontSize:"9px"}}>{item.ComputerStatus}</td>
-                <td style={{fontSize:"9px"}}>
+                <td style={{fontSize:"9px",minWidth:"22%",width:"22%"}}>{item.ComputerStatus}</td>
+                <td style={{fontSize:"9px",minWidth:"18%",width:"22%"}}>
                   {showConfirmation && (
                     <ConfirmationPopup
                       onCancel={handleConfirmationCancel}
@@ -723,7 +723,7 @@ const Mrserverdetails = ({ userData }) => {
                                     cursor: isButtonDisabled
                                       ? "not-allowed"
                                       : "pointer",
-                                      
+                                    fontSize:"10px",  
                                   }}
                                 >
                                   {isButtonDisabled ? "Start" : "Start"}
@@ -750,6 +750,7 @@ const Mrserverdetails = ({ userData }) => {
                                       cursor: isButtonDisabled
                                         ? "not-allowed"
                                         : "pointer",
+                                      fontSize:"9px",
                                     }}
                                   >
                                     {isButtonDisabled ? "Stop" : "Stop"}
@@ -773,6 +774,7 @@ const Mrserverdetails = ({ userData }) => {
                                       cursor: isButtonDisabled
                                         ? "not-allowed"
                                         : "pointer",
+                                      fontSize:"9px"
                                     }}
                                   >
                                     {isButtonDisabled ? "Restart" : "Restart"}
@@ -785,7 +787,7 @@ const Mrserverdetails = ({ userData }) => {
                       ))}
                   </ul>
                 </td>
-                <td style={{fontSize:"9px"}}>
+                <td style={{fontSize:"9px",minWidth:"15%",width:"15%",padding:"26px"}}>
                 {Array.isArray(item.ServiceStatus) &&
                 item.ServiceStatus.some(role => role.Name !== "No service found")? (
                   <>
@@ -797,10 +799,12 @@ const Mrserverdetails = ({ userData }) => {
                     }}
                     disabled={isButtonDisabled} // Disable button based on state
                     style={{
-                      marginBottom: "10px",
+
+                      marginBottom: "5px",
                       background: isButtonDisabled ? "#ccc" : "#b95d5d",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                      fontSize:"9px",
                     }}
                   >
                     {isButtonDisabled ? "Stop Services" : "Stop Services"}
@@ -813,10 +817,11 @@ const Mrserverdetails = ({ userData }) => {
                     }}
                     disabled={isButtonDisabled} // Disable button based on state
                     style={{
-                      marginBottom: "10px",
+                      marginBottom: "5px",
                       background: isButtonDisabled ? "#ccc" : "#0cb061",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                      fontSize:"9px"
                     }}
                   >
                     {isButtonDisabled ? "Start Services" : "Start Services"}
@@ -829,10 +834,11 @@ const Mrserverdetails = ({ userData }) => {
                     }}
                     disabled={isButtonDisabled} // Disable button based on state
                     style={{
-                      marginBottom: "10px",
+                      marginBottom: "5px",
                       background: isButtonDisabled ? "#ccc" : "#635279",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                      fontSize:"9px"
                     }}
                   >
                     {isButtonDisabled ? "Restart Services" : "Restart Services"}
@@ -842,7 +848,7 @@ const Mrserverdetails = ({ userData }) => {
                   "No services available"
                 )}
                 </td>
-                <td style={{fontSize:"9px"}}>
+                <td style={{fontSize:"9px",minWidth:"12%",width:"12%",paddingLeft:"40px"}}>
                   <button
                     onClick={() => {
                       setShowConfirmation(true);
@@ -851,10 +857,11 @@ const Mrserverdetails = ({ userData }) => {
                     }}
                     disabled={isButtonDisabled} // Disable button based on state
                     style={{
-                      marginBottom: "10px",
+                      marginBottom: "5px",
                       background: isButtonDisabled ? "#ccc" : "#b95d5d",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                      fontSize:"9px",
                     }}
                   >
                     {isButtonDisabled ? "Stop IIS" : "Stop IIS"}
@@ -867,10 +874,11 @@ const Mrserverdetails = ({ userData }) => {
                     }}
                     disabled={isButtonDisabled} // Disable button based on state
                     style={{
-                      marginBottom: "10px",
+                      marginBottom: "5px",
                       background: isButtonDisabled ? "#ccc" : "#0cb061",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                      fontSize:"9px"
                     }}
                   >
                     {isButtonDisabled ? "Start IIS" : "Start IIS"}
@@ -883,10 +891,11 @@ const Mrserverdetails = ({ userData }) => {
                     }}
                     disabled={isButtonDisabled} // Disable button based on state
                     style={{
-                      marginBottom: "10px",
+                      marginBottom: "5px",
                       background: isButtonDisabled ? "#ccc" : "#635279",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
+                      fontSize:"9px",
                     }}
                   >
                     {isButtonDisabled ? "Restart IIS" : "Restart IIS"}

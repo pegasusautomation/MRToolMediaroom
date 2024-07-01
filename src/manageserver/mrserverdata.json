@@ -37,7 +37,7 @@
                           "Type":  "database"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5BEDB001\\\u0027LIVEDB\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027MSPBE5BEDB001\\\u0027LIVEDB\u0027 failed, No such host is known"
     },
     {
         "ServiceStatus":  [
@@ -69,7 +69,7 @@
                           "Type":  "database"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5MDB001\\\u0027MDB\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027MSPBE5MDB001\\\u0027MDB\u0027 failed, No such host is known"
     },
     {
         "ServiceStatus":  [
@@ -85,7 +85,7 @@
                           "Type":  "other"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5NTP1\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027MSPBE5NTP1\u0027 failed, No such host is known"
     },
     {
         "ServiceStatus":  [
@@ -101,7 +101,7 @@
                           "Type":  "other"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBE5NTP2\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027MSPBE5NTP2\u0027 failed, No such host is known"
     },
     {
         "ServiceStatus":  [
@@ -269,7 +269,7 @@
                           "Type":  "service"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027FARM01-ACQ-37\u0027 failed: This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server"
+        "ComputerStatus":  "Error: \u0027FARM01-ACQ-37\u0027 failed, This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server"
     },
     {
         "ServiceStatus":  [
@@ -661,7 +661,7 @@
                           "Type":  "other"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027NTP1\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027NTP1\u0027 failed, No such host is known"
     },
     {
         "ServiceStatus":  [
@@ -1458,7 +1458,7 @@
                           "Type":  "webservice"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBR5CDBE001\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027MSPBR5CDBE001\u0027 failed, No such host is known"
     },
     {
         "ServiceStatus":  [
@@ -1474,6 +1474,6 @@
                           "Type":  "webservice"
                       }
                   ],
-        "ComputerStatus":  "Error: Testing connection to computer \u0027MSPBR5CDFE001\u0027 failed: No such host is known"
+        "ComputerStatus":  "Error: \u0027MSPBR5CDFE001\u0027 failed, No such host is known"
     }
 ]
