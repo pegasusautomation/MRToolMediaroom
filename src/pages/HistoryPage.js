@@ -39,16 +39,16 @@ const HistoryPage = () => {
   };
 
   return (
-    <div style={{ margin: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '98%', height: '100%' }}>
-      <caption style={{ fontSize: '25px', marginBottom: '2px' }}>
+    <div style={{ margin: '2px', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', height: '100%'}}>
+      <caption style={{ fontSize: '20px', marginBottom: '2px' }}>
         USER EVENT LOGS
       </caption>
       <br />
-      <div style={{ overflow: 'auto', maxWidth: '100vw', minWidth: '57vw', maxHeight: '70vh', position: 'relative' }}>
-        <table style={{ height: '300px', overflowY: 'inherit' }}>
+      <div style={{ overflow: 'auto', maxWidth: '100vw', minWidth: '57vw', maxHeight: '75vh', position: 'relative'}}>
+        <table style={{ height: '300px', overflowY: 'inherit'}}>
           <thead style={{ background: '#908fb0', height: '30px' }}>
             <tr>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' }}>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0'}}>
                 Event Time{' '}
                 <span style={{ cursor: 'pointer' }} onClick={toggleSortOrder}>
                   {sortOrder === 'asc' ? '▲' : '▼'}
@@ -78,7 +78,11 @@ const HistoryPage = () => {
           </tbody>
         </table>
       </div>
+      <footer style={{marginTop:"5px",textAlign:"center"}}>
+        <small>&copy; Copyright 2024, MRToolMediaroom</small>
+      </footer>
     </div>
+    
   );
 };
 

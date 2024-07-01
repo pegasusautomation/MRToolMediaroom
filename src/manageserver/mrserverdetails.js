@@ -461,20 +461,20 @@ const Mrserverdetails = ({ userData }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: "100%",
+        width: "102%",
         height: "88%",
         overflow: "auto",
       }}
     >
-      <caption style={{ fontSize: "25px", marginBottom: "20px" }}>
+      <caption style={{ fontSize: "19px", marginBottom: "0px" }}>
         SERVERS
       </caption>
       <div
         style={{
           width: "100%",
-          marginBottom: "20px",
+          marginBottom: "8px",
           textAlign: "left",
-          paddingLeft: "20px",
+          paddingLeft: "5px",
         }}
       >
         {filteredData.length > 0 && (
@@ -500,8 +500,9 @@ const Mrserverdetails = ({ userData }) => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          marginRight: "250px",
-          marginBottom: "10px",
+          marginRight: "200px",
+          marginBottom: "2px",
+          width:"80%",
         }}
       >
         <button
@@ -509,15 +510,16 @@ const Mrserverdetails = ({ userData }) => {
           onClick={getServiceStatus}
           disabled={isButtonDisabled}
           style={{
+            display:"relative",
             backgroundColor: isButtonDisabled ? "#ccc" : "#6d62a3",
             color: isButtonDisabled ? "orange" : "#fff",
             cursor: isButtonDisabled ? "not-allowed" : "pointer",
             border: "none",
-            width: "135px",
-            height: "40px",
+            width: "120px",
+            height: "30px",
             borderRadius: "10px",
-            fontSize: "14px",
-            marginRight: "190px",
+            fontSize: "12px",
+            right:"0px"
           }}
         >
           {isButtonDisabled ? "Updating Servers" : "Update Servers"}
@@ -536,9 +538,11 @@ const Mrserverdetails = ({ userData }) => {
             border: "none",
             width: "110px",
             borderRadius: "5px",
-            fontSize: "14px",
+            fontSize: "12px",
             marginRight: "10px",
-            marginLeft: "10px",
+            marginLeft: "60px",
+            position:"relative",
+            left:"320px",
           }}
         >
           {isButtonDisabled ? "Stop Selected" : "Stop Selected"}
@@ -558,9 +562,11 @@ const Mrserverdetails = ({ userData }) => {
             border: "none",
             width: "110px",
             borderRadius: "5px",
-            fontSize: "14px",
+            fontSize: "12px",
             marginRight: "10px",
             marginLeft: "10px",
+            position:"relative",
+            left:"320px",
           }}
         >
           {isButtonDisabled ? "Start Selected" : "Start Selected"}
@@ -579,16 +585,22 @@ const Mrserverdetails = ({ userData }) => {
             border: "none",
             width: "110px",
             borderRadius: "5px",
-            fontSize: "14px",
+            fontSize: "12px",
             marginRight: "10px",
             marginLeft: "10px",
+            position:"relative",
+            left:"320px"
           }}
         >
           {isButtonDisabled ? "Restart Selected" : "Restart Selected"}
         </button>       
         <span
           style={{
+            position:"relative",
+            left:"330px",
             marginRight: "10px",
+            marginLeft:"10px",
+            fontSize:"13px"
           }}
         >
           <b>{getSelectedMachineCount()}</b> Servers Selected
@@ -596,8 +608,8 @@ const Mrserverdetails = ({ userData }) => {
       </div>
       <br />
       {filteredData.length > 0 && (
-        <div style={{ overflow: "auto", maxHeight: "500px",position:"relative"}}>
-        <table style={{ width: "94%", marginBottom: "100px" }}>
+        <div style={{ overflow: "auto", maxHeight: "600px",position:"relative",width:"100%"}}>
+        <table style={{ width: "100%", marginBottom: "10px" }}>
           <thead style={{ background: "#908fb0" }}>
             <tr>
               <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
@@ -641,7 +653,7 @@ const Mrserverdetails = ({ userData }) => {
                     onChange={() => handleSelectMachine(item.ComputerName)}
                   />
                 </td> */}
-              <td style={{width:"30%"}}>
+              <td style={{width:"28%"}}>
                   <label className="checkbox-container">
                     {" "}
                     <input
