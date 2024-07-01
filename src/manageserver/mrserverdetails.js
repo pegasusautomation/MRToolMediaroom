@@ -608,7 +608,7 @@ const Mrserverdetails = ({ userData }) => {
       </div>
       <br />
       {filteredData.length > 0 && (
-        <div style={{ overflow: "auto", maxHeight: "600px",position:"relative",width:"100%"}}>
+        <div style={{ overflow: "auto", maxHeight: "400px",position:"relative",width:"100%"}}>
         <table style={{ width: "100%", marginBottom: "10px" }}>
           <thead style={{ background: "#908fb0" }}>
             <tr>
@@ -907,6 +907,9 @@ const Mrserverdetails = ({ userData }) => {
         </table>
         </div>
       )}
+      <footer style={{marginTop:"5px",textAlign:"center",position:"fixed",bottom:"0px",height:"27px"}}>
+    <small>&copy; Copyright 2024, MediaKind</small>
+  </footer>
     </div>
   );
 };

@@ -162,7 +162,7 @@ const Certtable = ({ userData }) => {
         Cert Report
       </button>
       <br /><br />
-      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "63vh" }}>
+      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "62vh",minHeight:"62vh" }}>
       <table style={{ borderCollapse: "collapse", width: "100%",whiteSpace: "wrap" }}>
         <thead style={{ background: "#908fb0", color: "white" }}>
           <tr>
@@ -210,6 +210,9 @@ const Certtable = ({ userData }) => {
         </tbody>
       </table>
       </div>
+  <footer style={{marginTop:"2px",textAlign:"center"}}>
+    <small>&copy; Copyright 2024, MediaKind</small>
+  </footer>
     </div>
   );
 };
