@@ -48,31 +48,31 @@ const HistoryPage = () => {
         <table style={{ height: '300px', overflowY: 'inherit'}}>
           <thead style={{ background: '#908fb0', height: '30px' }}>
             <tr>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0'}}>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0',fontSize:"12px"}}>
                 Event Time{' '}
                 <span style={{ cursor: 'pointer' }} onClick={toggleSortOrder}>
                   {sortOrder === 'asc' ? '▲' : '▼'}
                 </span>
               </th>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' }}>User</th>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' }}>Server</th>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' }}>Service</th>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' }}>Action</th>
-              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' }}>Activity History</th>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0',fontSize:"12px" }}>User</th>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0',fontSize:"12px" }}>Server</th>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0' ,fontSize:"12px"}}>Service</th>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0',fontSize:"12px" }}>Action</th>
+              <th style={{ position: 'sticky', top: '0', zIndex: '1', border: '1px solid black', backgroundColor: '#908fb0',fontSize:"12px" }}>Activity History</th>
             </tr>
           </thead>
           <tbody>
             {sortedData.map((item, index) => (
               <tr key={index}>
-                <td>
+                <td style={{fontSize:"9px"}}>
                   <span >{formatDate(item.Timelog)}</span>{' '}
                   <span style={{ color: 'orange' }}>{formatTime(item.Timelog)}</span>
                 </td>
-                <td>{item.User}</td>
-                <td style={{ maxWidth: '200px' }}>{item.Machine}</td>
-                <td>{item.Service}</td>
-                <td>{item.Action}</td>
-                <td>{item.ActionHistory}</td>
+                <td style={{fontSize:"9px"}}>{item.User}</td>
+                <td style={{ maxWidth: '200px',fontSize:"9px" }}>{item.Machine}</td>
+                <td style={{fontSize:"9px"}}>{item.Service}</td>
+                <td style={{fontSize:"9px"}}>{item.Action}</td>
+                <td style={{fontSize:"9px"}}>{item.ActionHistory}</td>
               </tr>
             ))}
           </tbody>
