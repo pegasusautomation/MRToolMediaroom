@@ -613,7 +613,7 @@ const Mrserverdetails = ({ userData }) => {
           <thead style={{ background: "#908fb0" }}>
             <tr>
               <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
-                      backgroundColor: "#908fb0",}}>
+                      backgroundColor: "#908fb0",fontSize:"12px"}}>
                 <label className="checkbox-container">
                   {" "}
                   <input
@@ -634,13 +634,13 @@ const Mrserverdetails = ({ userData }) => {
                 </label>
               </th>
               <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
-                      backgroundColor: "#908fb0",}}>Computer Status</th>
+                      backgroundColor: "#908fb0",fontSize:"12px"}}>Computer Status</th>
               <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
-                      backgroundColor: "#908fb0",}}>Service Status</th>
+                      backgroundColor: "#908fb0",fontSize:"12px"}}>Service Status</th>
               <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
-                      backgroundColor: "#908fb0",}}>Actions</th>
+                      backgroundColor: "#908fb0",fontSize:"12px"}}>Actions</th>
               <th style={{position:"sticky",top:"0",zIndex:"1",border: "1px solid black",
-                      backgroundColor: "#908fb0",}}>IIS Service Recycle</th>
+                      backgroundColor: "#908fb0",fontSize:"12px"}}>IIS Service Recycle</th>
             </tr>
           </thead>
           <tbody>
@@ -653,7 +653,7 @@ const Mrserverdetails = ({ userData }) => {
                     onChange={() => handleSelectMachine(item.ComputerName)}
                   />
                 </td> */}
-              <td style={{width:"28%"}}>
+              <td style={{width:"28%",fontSize:"9px"}}>
                   <label className="checkbox-container">
                     {" "}
                     <input
@@ -664,7 +664,7 @@ const Mrserverdetails = ({ userData }) => {
                         cursor: Array.isArray(item.ServiceStatus) && item.ServiceStatus.every((role) => role.Name === "No service found") ? "default" : "pointer",
                         border: "1px solid #ccc",
                         backgroundColor: "#fff",
-                        marginRight: "4%",
+                        marginRight: "4%"
                       }}
                       type="checkbox"
                       checked={selectedMachines.includes(item.ComputerName)}
@@ -679,8 +679,8 @@ const Mrserverdetails = ({ userData }) => {
                       {item.ComputerName}
                     </label>
                   </td>
-                <td>{item.ComputerStatus}</td>
-                <td>
+                <td style={{fontSize:"9px"}}>{item.ComputerStatus}</td>
+                <td style={{fontSize:"9px"}}>
                   {showConfirmation && (
                     <ConfirmationPopup
                       onCancel={handleConfirmationCancel}
@@ -723,6 +723,7 @@ const Mrserverdetails = ({ userData }) => {
                                     cursor: isButtonDisabled
                                       ? "not-allowed"
                                       : "pointer",
+                                      
                                   }}
                                 >
                                   {isButtonDisabled ? "Start" : "Start"}
@@ -784,7 +785,7 @@ const Mrserverdetails = ({ userData }) => {
                       ))}
                   </ul>
                 </td>
-                <td>
+                <td style={{fontSize:"9px"}}>
                 {Array.isArray(item.ServiceStatus) &&
                 item.ServiceStatus.some(role => role.Name !== "No service found")? (
                   <>
@@ -841,7 +842,7 @@ const Mrserverdetails = ({ userData }) => {
                   "No services available"
                 )}
                 </td>
-                <td>
+                <td style={{fontSize:"9px"}}>
                   <button
                     onClick={() => {
                       setShowConfirmation(true);
