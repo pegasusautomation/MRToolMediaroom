@@ -54,7 +54,10 @@ $scriptBlock = {
 
 $service1 = Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock $scriptBlock -ArgumentList $ServiceName
 
-$jsonpath = "C:\Mediaroom\src\manageserver\mrserverdata.json"
+# Set the path of main directory
+$mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\stopdomainservice.ps1","")
+
+$jsonpath = "$mainDirectory\src\manageserver\mrserverdata.json"
 $json = Get-Content -Path $jsonpath -Raw
 
 # Convert JSON to PowerShell objects
@@ -93,7 +96,7 @@ $serviceData = @{
 $newJsonData = $serviceData | ConvertTo-Json
 
 # Set the file path for the JSON file
-$jsonFilePath = "C:\Mediaroom\src\pages\UserLogonevents.json"
+$jsonFilePath = "$mainDirectory\src\pages\UserLogonevents.json"
 
 # Read existing JSON file content
 if (Test-Path $jsonFilePath) {

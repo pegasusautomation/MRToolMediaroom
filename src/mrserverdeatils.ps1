@@ -1,5 +1,5 @@
 # Specify the directory containing the XML files
-$xmlDirectoryPath = "C:\Mediaroom"
+$xmlDirectoryPath = ($MyInvocation.MyCommand.Path).replace("\src\mrserverdeatils.ps1","")
 $xmlFiles = Get-ChildItem -Path $xmlDirectoryPath -Filter "*.xml"
 
 # Read role descriptions from all role XML files dynamically
@@ -35,7 +35,7 @@ foreach ($xmlFile in $xmlFiles) {
 }
 
 # Read domain info JSON file content
-$jsonContent = Get-Content -Raw -Path 'C:\Mediaroom\config\domain.json'
+$jsonContent = Get-Content -Raw -Path "$xmlDirectoryPath\config\domain.json"
 
 # Convert domain name content to PowerShell object
 $jsonObject = $jsonContent | ConvertFrom-Json
@@ -179,6 +179,6 @@ for ($i = 0; $i -lt $branches.Count; $i++) {
 $updatedJsonString = $extractedData | ConvertTo-Json -Depth 5
 
 # Specify the file path where you want to save the JSON data
-$filePath = "C:\Mediaroom\src\manageserver\mrserverdata.json"
+$filePath = "$xmlDirectoryPath\src\manageserver\mrserverdata.json"
 $updatedJsonString | Out-File -FilePath $filePath -Encoding UTF8
 Write-Host "JSON file created: $filePath"

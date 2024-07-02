@@ -1,7 +1,8 @@
-$roleTypeXmlFilePath = "C:\Mediaroom\Roles.xml"
+$mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\mrcertdetails.ps1","")
+$roleTypeXmlFilePath = "$mainDirectory\Roles.xml"
 $roleDescriptionsXml = [xml](Get-Content $roleTypeXmlFilePath) 
 
-$roleTypeXmlFilePath_A = "C:\Mediaroom\ARoles.xml"
+$roleTypeXmlFilePath_A = "$mainDirectory\ARoles.xml"
 $roleDescriptionsXml_A = [xml](Get-Content $roleTypeXmlFilePath_A) 
  
 $roleDescriptions = @{}
@@ -22,14 +23,14 @@ foreach ($role in $roleDescriptionsXml_A.SelectNodes("//machineRole")) {
     }
 }
 
-$xmlFilePath = "C:\Mediaroom\serverLayout.xml"
+$xmlFilePath = "$mainDirectory\serverLayout.xml"
 $xml = [xml](Get-Content $xmlFilePath)
 
-$xmlFilePath_A = "C:\Mediaroom\AserverLayout.xml"
+$xmlFilePath_A = "$mainDirectory\AserverLayout.xml"
 $xml_A = [xml](Get-Content $xmlFilePath_A)
 
 # Read domain info JSON file content
-$jsonContent = Get-Content -Raw -Path 'C:\Mediaroom\config\domain.json'
+$jsonContent = Get-Content -Raw -Path "$mainDirectory\config\domain.json"
 
 # Convert domain name content to PowerShell object
 $jsonObject = $jsonContent | ConvertFrom-Json
@@ -216,7 +217,7 @@ foreach ($branch in $xml_A.SelectNodes("//branch")) {
 
 $updatedJsonString = $certDetailsArray | ConvertTo-Json -Depth 100
 # Specify the file path where you want to save the JSON data
-$filePath = "C:\Mediaroom\src\managecert\certdata.json"
+$filePath = "$mainDirectory\src\managecert\certdata.json"
 # # # Write the JSON data to a file
 $updatedJsonString | Out-File -FilePath $filePath -Encoding UTF8
 Write-Host "JSON file created: $jsonOutputFilePath"

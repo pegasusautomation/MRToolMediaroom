@@ -50,8 +50,11 @@ $stopServiceScriptBlock = {
     Get-Service -Name $serviceName
 }
 
+# Set the path of main directory
+$mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\stopAllDomainServices.ps1","")
+
 # Path to the JSON file
-$jsonPath = "C:\Mediaroom\src\manageserver\mrserverdata.json"
+$jsonPath = "$mainDirectory\src\manageserver\mrserverdata.json"
 
 # Read the JSON file
 $jsonContent = Get-Content -Path $jsonPath -Raw
@@ -96,7 +99,7 @@ $logEntry = @{
 }
 
 # Path to the log JSON file
-$logFilePath = "C:\Mediaroom\src\pages\UserLogonevents.json"
+$logFilePath = "$mainDirectory\src\pages\UserLogonevents.json"
 
 # Read existing log file content
 if (Test-Path $logFilePath) {

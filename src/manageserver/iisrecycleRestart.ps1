@@ -85,8 +85,10 @@ $serviceData = @{
 # Convert the hashtable to JSON format
 $newJsonData = $serviceData | ConvertTo-Json
 
+# Set the path of Main Directory
+$mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\iisrecycleRestart.ps1","")
 # Set the file path for the JSON file
-$jsonFilePath = "C:\Mediaroom\src\pages\UserLogonevents.json"
+$jsonFilePath = "$mainDirectory\src\pages\UserLogonevents.json"
 
 # Read existing JSON file content
 if (Test-Path $jsonFilePath) {

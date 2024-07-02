@@ -113,33 +113,33 @@ const Certtable = ({ userData }) => {
 
   return (
     <div style={{height: "80vh", width: "86vw", minWidth: "57vw", minHeight: "87vh" }}>
-      <h1 style={{ fontSize: "20px", marginLeft: "400px", marginBottom: '20px' }}>CERTIFICATE DETAILS</h1>
-      <label style={{ marginRight: "20px" }}>
+      <h1 style={{ fontSize: "15px", marginLeft: "400px", marginBottom: '10px' }}>CERTIFICATE DETAILS</h1>
+      <label style={{ marginRight: "20px", fontSize:"13px"}}>
         <b>Select ComputerName</b>
       </label>
       <select
         value={selectedComputer}
         onChange={handleSelectComputer}
-        style={{ height: "25px", width: "200px" }}
+        style={{ height: "18px", width: "200px"}}
       >
         {uniqueComputerNames.map((computer, index) => (
-          <option key={index} value={computer}>
+          <option style={{fontSize:"10px"}} key={index} value={computer}>
             {computer}
           </option>
         ))}
       </select>
-      <label style={{ marginRight: "20px", marginLeft: "20px" }}>
+      <label style={{ marginRight: "20px", marginLeft: "20px",fontSize:"13px" }}>
         <b>Expiration Filter</b>
       </label>
       <select
         value={expirationFilter}
         onChange={handleExpirationFilter}
-        style={{ height: "25px", width: "200px" }}
+        style={{ height: "18px", width: "200px" }}
       >
-        <option value="all">All</option>
-        <option value="7days">Expires in 7 Days</option>
-        <option value="30days">Expires in 30 Days</option>
-        <option value="expired">Already Expired</option>
+        <option style={{fontSize:"10px"}} value="all">All</option>
+        <option style={{fontSize:"10px"}} value="7days">Expires in 7 Days</option>
+        <option style={{fontSize:"10px"}} value="30days">Expires in 30 Days</option>
+        <option style={{fontSize:"10px"}} value="expired">Already Expired</option>
       </select>
       <br /><br />
       <button
@@ -162,7 +162,7 @@ const Certtable = ({ userData }) => {
         Cert Report
       </button>
       <br /><br />
-      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "62vh",minHeight:"62vh" }}>
+      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "65vh",minHeight:"65vh" }}>
       <table style={{ borderCollapse: "collapse", width: "100%",whiteSpace: "wrap" }}>
         <thead style={{ background: "#908fb0", color: "white" }}>
           <tr>
