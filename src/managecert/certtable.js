@@ -210,7 +210,7 @@ const Certtable = ({ userData }) => {
         </tbody>
       </table>
       </div>
-  <footer style={{marginTop:"2px",textAlign:"center"}}>
+  <footer style={{marginTop:"2px",textAlign:"center",fontSize:"16px"}}>
     <small>&copy; Copyright 2024, MediaKind</small>
   </footer>
     </div>

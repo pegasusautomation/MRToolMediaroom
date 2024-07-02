@@ -907,7 +907,7 @@ const Mrserverdetails = ({ userData }) => {
         </table>
         </div>
       )}
-      <footer style={{marginTop:"5px",textAlign:"center",position:"fixed",bottom:"0px",height:"27px"}}>
+      <footer style={{marginTop:"5px",textAlign:"center",position:"fixed",bottom:"0px",height:"27px",fontSize:"16px"}}>
     <small>&copy; Copyright 2024, MediaKind</small>
   </footer>
     </div>
