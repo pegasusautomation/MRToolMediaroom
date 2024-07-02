@@ -1,7 +1,7 @@
 import React from "react";
 
 const HomePage = () => {
-    return <table className="hopmepage"><br></br><b>To Do</b><br></br><br></br>
+    return <table className="hopmepage" style={{fontSize:"15px"}}><br></br><b>To Do</b><br></br><br></br>
     <b>User Story 1 : </b><br></br>
     Need to check the certificate validity with alert mechanism and means to renew and deploy new certificates to all the machines.	A tool to have the consolidated view for the machine certificates and their expiry dates.
     Then with simple click of a button the certificate renewal process can be automated.<br></br>
@@ -31,7 +31,11 @@ const HomePage = () => {
     <br></br>
     1. Get the server logs
     <br></br>
-    2. Automation script to share logs based on the demand 
+    2. Automation script to share logs based on the demand
+    <br></br>
+    <footer style={{marginTop:"5px",textAlign:"center",fontSize:"16px"}}>
+        <small>&copy; Copyright 2024, MediaKind</small>
+    </footer>
     </table>;
 };
 
