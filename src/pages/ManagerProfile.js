@@ -9,7 +9,7 @@ const ManagerProfile = ({ userData }) => {
       <p>Role:{userData.role}</p>
       {/* Display other user-specific content */}
 
-     <footer style={{marginLeft:"500px",marginTop:"5px",textaaAlign:"center",position:"fixed",bottom:"0px",height:"27px"}}>
+     <footer style={{marginLeft:"450px",marginTop:"5px",textaaAlign:"center",position:"fixed",bottom:"0px",height:"27px"}}>
      <small>&copy; Copyright 2024, MediaKind</small>
    </footer>
    </div>
