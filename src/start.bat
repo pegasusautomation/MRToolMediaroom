@@ -58,7 +58,6 @@ IF ERRORLEVEL 1 (
     IF ERRORLEVEL 1 (
         echo DOUBLE CLICK ON MR Application.exe
         pause
-        exit /b 1
     ) ELSE (
         echo Node.js path set successfully.
     )
