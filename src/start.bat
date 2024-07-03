@@ -53,13 +53,10 @@ IF ERRORLEVEL 1 (
     echo Setting Node.js path in the system environment variables...
     setx PATH "%PATH%;C:\Program Files\nodejs\" /M
  
-    :: Wait for a moment to ensure PATH is updated
-    timeout /t 20 /nobreak
- 
     :: Verify Node.js installation again
     node -v >nul 2>&1
     IF ERRORLEVEL 1 (
-        echo Failed to set Node.js path in the system environment variables.
+        echo DOUBLE CLICK ON MR Application.exe
         pause
         exit /b 1
     ) ELSE (
