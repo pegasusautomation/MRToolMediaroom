@@ -515,8 +515,9 @@ const Mrserverdetails = ({ userData }) => {
             color: isButtonDisabled ? "orange" : "#fff",
             cursor: isButtonDisabled ? "not-allowed" : "pointer",
             border: "none",
-            width: "120px",
-            height: "30px",
+            width: "100px",
+            height: "25px",
+            minHeight:"25px",
             borderRadius: "10px",
             fontSize: "10px",
             right:"0px"
@@ -542,7 +543,10 @@ const Mrserverdetails = ({ userData }) => {
             marginRight: "10px",
             marginLeft: "60px",
             position:"relative",
-            left:"290px",
+            left:"340px",
+            width:"80px",
+            height: "25px",
+            minHeight:"25px",
           }}
         >
           {isButtonDisabled ? "Stop Selected" : "Stop Selected"}
@@ -560,13 +564,15 @@ const Mrserverdetails = ({ userData }) => {
             color: isButtonDisabled ? "black" : "#fff",
             cursor: isButtonDisabled ? "not-allowed" : "pointer",
             border: "none",
-            width: "110px",
             borderRadius: "5px",
             fontSize: "10px",
             marginRight: "10px",
             marginLeft: "10px",
             position:"relative",
-            left:"290px",
+            left:"340px",
+            width:"80px",
+            height: "25px",
+            minHeight:"25px",
           }}
         >
           {isButtonDisabled ? "Start Selected" : "Start Selected"}
@@ -583,13 +589,15 @@ const Mrserverdetails = ({ userData }) => {
             color: isButtonDisabled ? "black" : "#fff",
             cursor: isButtonDisabled ? "not-allowed" : "pointer",
             border: "none",
-            width: "110px",
             borderRadius: "5px",
             fontSize: "10px",
             marginRight: "10px",
             marginLeft: "10px",
             position:"relative",
-            left:"290px"
+            left:"340px",
+            width:"80px",
+            height: "25px",
+            minHeight:"25px",
           }}
         >
           {isButtonDisabled ? "Restart Selected" : "Restart Selected"}
@@ -597,7 +605,7 @@ const Mrserverdetails = ({ userData }) => {
         <span
           style={{
             position:"relative",
-            left:"290px",
+            left:"340px",
             marginRight: "10px",
             marginLeft:"10px",
             fontSize:"12px"
@@ -608,7 +616,7 @@ const Mrserverdetails = ({ userData }) => {
       </div>
       <br />
       {filteredData.length > 0 && (
-        <div style={{ overflow: "auto", maxHeight: "400px",position:"relative",width:"100%"}}>
+        <div style={{ overflow: "auto", maxHeight: "410px",position:"relative",width:"100%"}}>
         <table style={{ width: "100%", marginBottom: "10px" }}>
           <thead style={{ background: "#908fb0" }}>
             <tr>
@@ -723,7 +731,9 @@ const Mrserverdetails = ({ userData }) => {
                                     cursor: isButtonDisabled
                                       ? "not-allowed"
                                       : "pointer",
-                                    fontSize:"10px",  
+                                    fontSize:"10px", 
+                                    height: "25px",
+                                    minHeight:"25px", 
                                   }}
                                 >
                                   {isButtonDisabled ? "Start" : "Start"}
@@ -751,6 +761,8 @@ const Mrserverdetails = ({ userData }) => {
                                         ? "not-allowed"
                                         : "pointer",
                                       fontSize:"9px",
+                                      height: "25px",
+                                      minHeight:"25px", 
                                     }}
                                   >
                                     {isButtonDisabled ? "Stop" : "Stop"}
@@ -774,7 +786,9 @@ const Mrserverdetails = ({ userData }) => {
                                       cursor: isButtonDisabled
                                         ? "not-allowed"
                                         : "pointer",
-                                      fontSize:"9px"
+                                      fontSize:"9px",
+                                      height: "25px",
+                                      minHeight:"25px", 
                                     }}
                                   >
                                     {isButtonDisabled ? "Restart" : "Restart"}
@@ -805,6 +819,8 @@ const Mrserverdetails = ({ userData }) => {
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
                       fontSize:"9px",
+                      height: "25px",
+                      minHeight:"25px", 
                     }}
                   >
                     {isButtonDisabled ? "Stop Services" : "Stop Services"}
@@ -821,7 +837,9 @@ const Mrserverdetails = ({ userData }) => {
                       background: isButtonDisabled ? "#ccc" : "#0cb061",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
-                      fontSize:"9px"
+                      fontSize:"9px",
+                      height: "25px",
+                      minHeight:"25px", 
                     }}
                   >
                     {isButtonDisabled ? "Start Services" : "Start Services"}
@@ -838,7 +856,9 @@ const Mrserverdetails = ({ userData }) => {
                       background: isButtonDisabled ? "#ccc" : "#635279",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
-                      fontSize:"9px"
+                      fontSize:"9px",
+                      height: "28px",
+                      minHeight:"28px", 
                     }}
                   >
                     {isButtonDisabled ? "Restart Services" : "Restart Services"}
@@ -862,6 +882,8 @@ const Mrserverdetails = ({ userData }) => {
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
                       fontSize:"9px",
+                      height: "25px",
+                      minHeight:"25px", 
                     }}
                   >
                     {isButtonDisabled ? "Stop IIS" : "Stop IIS"}
@@ -878,7 +900,9 @@ const Mrserverdetails = ({ userData }) => {
                       background: isButtonDisabled ? "#ccc" : "#0cb061",
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
-                      fontSize:"9px"
+                      fontSize:"9px",
+                      height: "25px",
+                      minHeight:"25px", 
                     }}
                   >
                     {isButtonDisabled ? "Start IIS" : "Start IIS"}
@@ -896,6 +920,8 @@ const Mrserverdetails = ({ userData }) => {
                       color: isButtonDisabled ? "black" : "#fff",
                       cursor: isButtonDisabled ? "not-allowed" : "pointer",
                       fontSize:"9px",
+                      height: "25px",
+                      minHeight:"25px", 
                     }}
                   >
                     {isButtonDisabled ? "Restart IIS" : "Restart IIS"}
