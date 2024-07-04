@@ -30,7 +30,13 @@ if (-not $Message) {
     exit 1
 }
 
-$username = "$($env:USERDOMAIN)\$($env:USERNAME)"
+if ($ComputerName -like "*MSPBR*") {
+    $domain = "mspbr5"
+} else {
+    $domain = "mspbe5"
+}
+
+$username = "$domain\$($env:USERNAME)"
 
 # Log the credentials being used
 Write-Output "Using credentials: $username"
@@ -39,7 +45,7 @@ $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($username, $password)
 
 # Invoke-Command to stop the service on the remote computer
-Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock {
+Invoke-Command -ComputerName "$ComputerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock {
     param($serviceName)
     Stop-Service -Name $serviceName
 } -ArgumentList $ServiceName
@@ -52,7 +58,7 @@ $scriptBlock = {
     Get-Service $serviceName
 }
 
-$service1 = Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock $scriptBlock -ArgumentList $ServiceName
+$service1 = Invoke-Command -ComputerName "$ComputerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock $scriptBlock -ArgumentList $ServiceName
 
 # Set the path of main directory
 $mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\stopdomainservice.ps1","")

@@ -23,22 +23,13 @@ if (-not $Message) {
     exit 1
 }
 
-# Function to get domain-specific username
-function Get-Username {
-    param (
-        [string]$ComputerName
-    )
-    # Determine the domain based on the computer name
-    if ($ComputerName -like "MSPBR5*") {
-        return "MSPBR5\$($env:USERNAME)"
-    } elseif ($ComputerName -like "MSPBE5*") {
-        return "MSPBE5\$($env:USERNAME)"
-    } else {
-        return "$($env:USERDOMAIN)\$($env:USERNAME)"
-    }
+if ($ComputerName -like "*MSPBR*") {
+    $domain = "mspbr5"
+} else {
+    $domain = "mspbe5"
 }
 
-$username = Get-Username -ComputerName $ComputerName
+$username = "$domain\$($env:USERNAME)"
 
 $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($username, $password)
@@ -68,7 +59,7 @@ $scriptBlock = {
 }
 
 # Invoke the command on the remote computer
-Invoke-Command -ComputerName $computerName -Credential $credential -ScriptBlock $scriptBlock
+Invoke-Command -ComputerName "$ComputerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock $scriptBlock
 
 # Prepare data to store in the JSON file
 $servicecmd = "IISReset /start"

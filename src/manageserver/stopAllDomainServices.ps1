@@ -1,5 +1,5 @@
 param (
-    [string]$ComputerName,  # Accept the computer name as a parameter
+    [string]$ComputerName, # Accept the computer name as a parameter
     [string]$Message  # Accept the message as a parameter
 )
 
@@ -23,22 +23,13 @@ if (-not $Message) {
     exit 1
 }
 
-# Function to get domain-specific username
-function Get-Username {
-    param (
-        [string]$ComputerName
-    )
-    # Determine the domain based on the computer name
-    if ($ComputerName -like "MSPBR5*") {
-        return "MSPBR5\$($env:USERNAME)"
-    } elseif ($ComputerName -like "MSPBE5*") {
-        return "MSPBE5\$($env:USERNAME)"
-    } else {
-        return "$($env:USERDOMAIN)\$($env:USERNAME)"
-    }
+if ($ComputerName -like "*MSPBR*") {
+    $domain = "mspbr5"
 }
-
-$username = Get-Username -ComputerName $ComputerName
+else {
+    $domain = "mspbe5"
+}
+$username = "$domain\$($env:USERNAME)"
 $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($username, $password)
 
@@ -51,7 +42,7 @@ $stopServiceScriptBlock = {
 }
 
 # Set the path of main directory
-$mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\stopAllDomainServices.ps1","")
+$mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\stopAllDomainServices.ps1", "")
 
 # Path to the JSON file
 $jsonPath = "$mainDirectory\src\manageserver\mrserverdata.json"
@@ -71,7 +62,7 @@ if (-not $computerEntry) {
 # Loop through each service in the ServiceStatus array and update its status
 foreach ($service in $computerEntry.ServiceStatus) {
     $serviceName = $service.Name
-    $serviceResult = Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock $stopServiceScriptBlock -ArgumentList $serviceName
+    $serviceResult = Invoke-Command -ComputerName "$ComputerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock $stopServiceScriptBlock -ArgumentList $serviceName
     $service.Status = $serviceResult.Status
     Write-Host "Updated status for service: $serviceName to $($serviceResult.Status)"  # Debugging output
 }
@@ -90,11 +81,11 @@ Write-Host "JSON file updated with service statuses."
 # Prepare log data
 $currentDate = Get-Date
 $logEntry = @{
-    Timelog = $currentDate.ToString("yyyy-MM-dd HH:mm:ss")
-    User = $username
-    Machine = $ComputerName
-    Service = "AdminService.exe /action=stop"
-    Action = "Stopped"
+    Timelog       = $currentDate.ToString("yyyy-MM-dd HH:mm:ss")
+    User          = $username
+    Machine       = $ComputerName
+    Service       = "AdminService.exe /action=stop"
+    Action        = "Stopped"
     ActionHistory = $Message
 }
 
@@ -107,7 +98,8 @@ if (Test-Path $logFilePath) {
     if ($existingLog -isnot [array]) {
         $existingLog = @($existingLog)
     }
-} else {
+}
+else {
     $existingLog = @()
 }
 

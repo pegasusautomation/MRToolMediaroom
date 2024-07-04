@@ -30,28 +30,19 @@ if (-not $Message) {
     exit 1
 }
 
-# Function to get domain-specific username
-function Get-Username {
-    param (
-        [string]$ComputerName
-    )
-    # Determine the domain based on the computer name
-    if ($ComputerName -like "MSPBR5*") {
-        return "MSPBR5\$($env:USERNAME)"
-    } elseif ($ComputerName -like "MSPBE5*") {
-        return "MSPBE5\$($env:USERNAME)"
-    } else {
-        return "$($env:USERDOMAIN)\$($env:USERNAME)"
-    }
+if ($ComputerName -like "*MSPBR*") {
+    $domain = "mspbr5"
+} else {
+    $domain = "mspbe5"
 }
-
+$username = "$domain\$($env:USERNAME)"
 $username = Get-Username -ComputerName $ComputerName
 
 $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($username, $password)
 
 # Invoke-Command to stop the service on the remote computer
-Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock {
+Invoke-Command -ComputerName "$ComputerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock {
     param($serviceName)
     Start-Service -Name $serviceName
 } -ArgumentList $ServiceName
@@ -64,7 +55,7 @@ $scriptBlock = {
     Get-Service $serviceName
 }
 
-$service1 = Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock $scriptBlock -ArgumentList $ServiceName
+$service1 = Invoke-Command -ComputerName "$ComputerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock $scriptBlock -ArgumentList $ServiceName
 
 # Set the path of main directory
 $mainDirectory = ($MyInvocation.MyCommand.Path).replace("\src\manageserver\startdomainservice.ps1","")
