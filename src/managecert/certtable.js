@@ -148,13 +148,16 @@ const Certtable = ({ userData }) => {
         style={{
           cursor: sortedDetails.length === 0 ? 'not-allowed' : 'pointer',
           display: 'inline-block',
-          padding: '8px 16px',
           backgroundColor: sortedDetails.length === 0 ? 'gray' : '#4CAF50',
           color: 'white',
           borderRadius: '4px',
           textDecoration: 'none',
           textAlign: 'left',
-          width: '13%'
+          width: '9%',
+          height:"22px",
+          minHeight:"22px",
+          fontSize:"10px",
+          paddingLeft:"5px",
         }}
         title="Download Cert Details"
       >
@@ -162,7 +165,7 @@ const Certtable = ({ userData }) => {
         Cert Report
       </button>
       <br /><br />
-      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "65vh",minHeight:"65vh" }}>
+      <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "67vh",minHeight:"67vh" }}>
       <table style={{ borderCollapse: "collapse", width: "100%",whiteSpace: "wrap" }}>
         <thead style={{ background: "#908fb0", color: "white" }}>
           <tr>

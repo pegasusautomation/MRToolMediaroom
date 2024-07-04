@@ -531,11 +531,11 @@ const Mrserverdetails = ({ userData }) => {
             setShowConfirmation(true);
             setActionType("StopSelected");
           }}
-          disabled={isButtonDisabled}
+          disabled={selectedMachines.length===0}
           style={{
-            backgroundColor: isButtonDisabled ? "#ccc" : "#b95d5d",
-            color: isButtonDisabled ? "black" : "#fff",
-            cursor: isButtonDisabled ? "not-allowed" : "pointer",
+            backgroundColor: selectedMachines.length===0 ? "gray" : "#b95d5d",
+            color:"#fff",
+            cursor: selectedMachines.length===0 ? "not-allowed" : "pointer",
             border: "none",
             width: "110px",
             borderRadius: "5px",
@@ -558,11 +558,11 @@ const Mrserverdetails = ({ userData }) => {
             setShowConfirmation(true);
             setActionType("StartSelected");
           }}
-          disabled={isButtonDisabled}
+          disabled={selectedMachines.length===0}
           style={{
-            backgroundColor: isButtonDisabled ? "#ccc" : "#0cb061",
-            color: isButtonDisabled ? "black" : "#fff",
-            cursor: isButtonDisabled ? "not-allowed" : "pointer",
+            backgroundColor: selectedMachines.length===0 ? "gray" : "#0cb061",
+            color: "#fff",
+            cursor: selectedMachines.length===0 ? "not-allowed" : "pointer",
             border: "none",
             borderRadius: "5px",
             fontSize: "10px",
@@ -583,11 +583,11 @@ const Mrserverdetails = ({ userData }) => {
             setShowConfirmation(true);
             setActionType("RestartSelected");
           }}
-          disabled={isButtonDisabled}
+          disabled={selectedMachines.length===0}
           style={{
-            backgroundColor: isButtonDisabled ? "#ccc" : "#635279",
-            color: isButtonDisabled ? "black" : "#fff",
-            cursor: isButtonDisabled ? "not-allowed" : "pointer",
+            backgroundColor: selectedMachines.length===0 ? "gray" : "#635279",
+            color: "#fff",
+            cursor: selectedMachines.length===0 ? "not-allowed" : "pointer",
             border: "none",
             borderRadius: "5px",
             fontSize: "10px",
