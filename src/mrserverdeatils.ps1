@@ -52,12 +52,12 @@ function Get-RemoteServiceStatus {
         [string]$Password
     )
     
-    $credential = New-Object System.Management.Automation.PSCredential($Username, (ConvertTo-SecureString -String $Password -AsPlainText -Force))
+    $credential = New-Object System.Management.Automation.PSCredential($username, (ConvertTo-SecureString -String $password -AsPlainText -Force))
     $scriptBlock = {
         Get-Service | Where-Object { $_.Name -like '*Iptv*' -or $_.DisplayName -like '*Iptv*' -or $_.Name -eq 'W3SVC' -or $_.DisplayName -like '*World Wide Web*' }
     }
     
-    $services = Invoke-Command -ComputerName $ComputerName -Credential $credential -ScriptBlock $scriptBlock
+    $services = Invoke-Command -ComputerName "$computerName.$domain.MRSUPP.COM" -Credential $credential -ScriptBlock $scriptBlock
     return $services
 }
 
@@ -145,11 +145,11 @@ for ($i = 0; $i -lt $branches.Count; $i++) {
             } else {
                 $serviceList = $services | Select-Object -ExpandProperty Name
                 $credential = New-Object System.Management.Automation.PSCredential($username, (ConvertTo-SecureString -String $password -AsPlainText -Force))
-                $serviceStatus = Get-ServiceStatus -ComputerName $computerName -Credential $credential -ServiceList $serviceList
+                $serviceStatus = Get-ServiceStatus -ComputerName "$computerName.$domain.MRSUPP.COM" -Credential $credential -ServiceList $serviceList
             }
 
             try {
-                $result = Test-Connection -ComputerName $computerName -Count 1 -ErrorAction Stop
+                $result = Test-Connection -ComputerName "$computerName.$domain.MRSUPP.COM"
                 $serverStatus = if ($result) { "Reachable" } else { "Unreachable" }
             }
             catch {
