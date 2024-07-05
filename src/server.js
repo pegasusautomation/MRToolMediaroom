@@ -38,7 +38,31 @@ app.post('/getstatus-service', (req, res) => {
   });
 });
 
+app.post('/getstatus-cert', (req, res) => {
+  if (isExecutingStatusScript) {
+    // If the script is already executing, return a 503 Service Unavailable response
+    res.status(503).send('Certificate status script is already executing. Please wait.');
+    return;
+  }
 
+  isExecutingStatusScript = true; // Set the flag to true to indicate script execution
+  const powershellCommand = `powershell.exe -File "${dirname}/mrcertdetails.ps1"`;
+
+  exec(powershellCommand, (error, stdout, stderr) => {
+    isExecutingStatusScript = false; // Reset the flag after script execution
+    if (error) {
+      console.error('Error getting certificate status:', error);
+      res.status(500).send('Error getting crtificate status');
+      return;
+    }
+
+    // Log the status received from PowerShell script
+    console.log('Certificate status:', stdout);
+
+    // Assuming your PowerShell script returns the status, you can send it back as response
+    res.send("Certificate status updated successfully");
+  });
+});
 // Endpoint to handle stopping the service
 app.post('/stop-service', (req, res) => {
   const { roleName, computerName, message } = req.body;

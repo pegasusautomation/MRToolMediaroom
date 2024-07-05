@@ -7,6 +7,33 @@ const Certtable = ({ userData }) => {
   const [selectedComputer, setSelectedComputer] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [expirationFilter, setExpirationFilter] = useState("all");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isFetchingCertStatus, setIsFetchingCertStatus] = useState(false);
+
+  const getCertStatus = () => {
+    setIsButtonDisabled(true);
+    setIsFetchingCertStatus(true);
+    console.log(isFetchingCertStatus);
+    fetch("/getstatus-cert", {
+      method: "POST",
+      body: null,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        setIsButtonDisabled(false);
+        setIsFetchingCertStatus(false);
+        if (!response.ok) {
+          throw new Error("Error getting Certificate");
+        }
+        alert("Certificates updated successfully.");
+      })
+      .catch((error) => {
+        setIsButtonDisabled(false);
+        setIsFetchingCertStatus(false);
+        console.error("Error getting Certificate:", error.message);
+        alert(":(  " + error.message);
+      });
+  };
 
   const uniqueComputerNames = ["All", ...Array.from(
     new Set(certTable.map((item) => item["Computer Name"]))
@@ -154,7 +181,7 @@ const Certtable = ({ userData }) => {
           textDecoration: 'none',
           textAlign: 'left',
           width: '9%',
-          height:"22px",
+          height:"25px",
           minHeight:"22px",
           fontSize:"10px",
           paddingLeft:"5px",
@@ -164,6 +191,29 @@ const Certtable = ({ userData }) => {
         <FontAwesomeIcon icon={faDownload} style={{ marginRight: '8px' }} />
         Cert Report
       </button>
+      <button
+          id="updateCertStatusBtn"
+          onClick={getCertStatus}
+          disabled={isButtonDisabled}
+          style={{
+            display:"relative",
+            backgroundColor: isButtonDisabled ? "#ccc" : "#b95d5d",
+            color: isButtonDisabled ? "orange" : "#fff",
+            cursor: isButtonDisabled ? "not-allowed" : "pointer",
+            color: 'white',
+            borderRadius: '4px',
+            textDecoration: 'none',
+            textAlign: 'left',
+            width: '9%',
+            height:"25px",
+            minHeight:"22px",
+            fontSize:"10px",
+            paddingLeft:"5px",
+            marginLeft:"30px"
+          }}
+        >
+          {isButtonDisabled ? "Updating Certificates" : "Update Certificates"}
+        </button>
       <br /><br />
       <div style={{ overflow: "auto",  maxWidth: "100vw", minWidth: "57vw",maxHeight: "67vh",minHeight:"67vh" }}>
       <table style={{ borderCollapse: "collapse", width: "100%",whiteSpace: "wrap" }}>
