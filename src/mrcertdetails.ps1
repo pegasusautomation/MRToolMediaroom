@@ -46,11 +46,12 @@ foreach ($branch in $xml.SelectNodes("//branch")) {
             $computerName = $computer.SelectSingleNode("@name").Value
             Write-Output($computerName)		
             # Get service name based on computer name
+            $domain = $jsonObject.Branch
             $username = "$($jsonObject.Branch)\Raghavendra.Gandanah"
             # $username = 'MSPBR5\Raghavendra.Gandanah'
             $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
             $credential = New-Object System.Management.Automation.PSCredential($username, $password)
-            $remoteComputer = $computerName
+            $remoteComputer = "$computerName.$domain.MRSUPP.COM"
             $Servicename = $serviceName
 
             $scriptBlock = {
@@ -108,7 +109,7 @@ foreach ($branch in $xml.SelectNodes("//branch")) {
 
                         # Create a custom object to store certificate details in the desired order
                         $certDetailsObject = [PSCustomObject]@{
-                            "Computer Name"          = $remoteComputer
+                            "Computer Name"          = $computerName
                             "Issued To"              = $cert.Subject
                             "Issued By"              = $cert.Issuer
                             "Valid From"             = $cert.NotBefore.ToString("yyyy-MM-dd HH:mm:ss tt")
@@ -135,11 +136,12 @@ foreach ($branch in $xml_A.SelectNodes("//branch")) {
             $computerName = $computer.SelectSingleNode("@name").Value
             Write-Output($computerName)		
             # Get service name based on computer name
+            $domain = $jsonObject.Aquasition
             $username = "$($jsonObject.Aquasition)\Raghavendra.Gandanah"
             # $username = 'MSPBR5\Raghavendra.Gandanah'
             $password = 'Password1!' | ConvertTo-SecureString -AsPlainText -Force
             $credential = New-Object System.Management.Automation.PSCredential($username, $password)
-            $remoteComputer = $computerName
+            $remoteComputer = "$computerName.$domain.MRSUPP.COM"
             $Servicename = $serviceName
 
             $scriptBlock = {
@@ -196,7 +198,7 @@ foreach ($branch in $xml_A.SelectNodes("//branch")) {
 
                         # Create a custom object to store certificate details in the desired order
                         $certDetailsObject = [PSCustomObject]@{
-                            "Computer Name"          = $remoteComputer
+                            "Computer Name"          = $computerName
                             "Issued To"              = $cert.Subject
                             "Issued By"              = $cert.Issuer
                             "Valid From"             = $cert.NotBefore.ToString("yyyy-MM-dd HH:mm:ss tt")
