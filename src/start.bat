@@ -33,13 +33,13 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 setlocal enabledelayedexpansion
- 
+
 :: Get the directory of the script
 set "projectDir=%~dp0"
- 
+
 :: Ensure the provided path ends with a backslash
 if not "%projectDir:~-1%" == "\" set "projectDir=%projectDir%\"
- 
+
 :: Function to check if Node.js is installed
 echo Checking if Node.js is installed...
 node -v >nul 2>&1
@@ -56,7 +56,7 @@ IF ERRORLEVEL 1 (
     :: Verify Node.js installation again
     node -v >nul 2>&1
     IF ERRORLEVEL 1 (
-        echo DOUBLE CLICK ON MR Application.exe
+        echo This is only once [Node installed, Press any key to close and relaunch MP Application again]
         pause
     ) ELSE (
         echo Node.js path set successfully.
@@ -64,36 +64,35 @@ IF ERRORLEVEL 1 (
 ) ELSE (
     echo Node.js is already installed.
 )
- 
+
 :: Unblocking files if necessary
 echo Checking if any files need to be unblocked in %projectDir%...
 powershell -command "Get-ChildItem -Path '%projectDir%' -Recurse | Where-Object { $_.Attributes -band [System.IO.FileAttributes]::ReparsePoint -or $_.Attributes -band [System.IO.FileAttributes]::Offline -or $_.Attributes -band [System.IO.FileAttributes]::Encrypted -or $_.Attributes -band [System.IO.FileAttributes]::Temporary } | Unblock-File"
 echo Files unblocked if necessary.
- 
+
 :: Install dependencies if node_modules does not exist
 if not exist "%projectDir%node_modules" (
     echo Installing dependencies...
     pushd "%projectDir%"
-    npm install
+    npm install > "%projectDir%npm_install.log" 2>&1
+    set npm_errorlevel=%errorlevel%
     popd
-    IF %ERRORLEVEL% NEQ 0 (
-        echo Failed to install dependencies. Check the log for details.
-        echo React app log: %projectDir%react_app.log
+    IF !npm_errorlevel! NEQ 0 (
+        echo This is only once [Dependencies installed, Press any key to close and relaunch MP Application again]
         pause
-        exit /b 1
     ) ELSE (
         echo Dependencies installed successfully.
     )
 ) ELSE (
     echo Dependencies already installed.
 )
- 
+
 :: Start the React app
 echo Starting React app...
 pushd "%projectDir%"
 start "" /b cmd /c "npm start >> react_app.log 2>&1"
 popd
- 
+
 :: Wait for the React app to start by monitoring the log file
 echo Waiting for React app to start...
 :waitForReactApp
@@ -104,14 +103,11 @@ IF %ERRORLEVEL% NEQ 0 (
 ) ELSE (
     echo React app started successfully.
 )
- 
+
 :: Navigate to the server directory and start the server
 echo Starting Node.js server...
-pushd "%projectDir%src"
-start "" /b cmd /c "node server.js > node_server.log 2>&1"
-popd
- 
+cd /d %projectDir%src\backend\
+start "" /b cmd /c "node server.mjs > %projectDir%src\node_server.log 2>&1"
+
 :: Final messages
-echo App Launched...
- 
-endlocal
+echo MP App Launched...
