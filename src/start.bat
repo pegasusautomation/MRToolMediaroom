@@ -106,8 +106,9 @@ IF %ERRORLEVEL% NEQ 0 (
 
 :: Navigate to the server directory and start the server
 echo Starting Node.js server...
-cd /d %projectDir%src\backend\
-start "" /b cmd /c "node server.mjs > %projectDir%src\node_server.log 2>&1"
+pushd "%projectDir%src"
+start "" /b cmd /c "node server.js > node_server.log 2>&1"
+popd
 
 :: Final messages
 echo MR App Launched...
